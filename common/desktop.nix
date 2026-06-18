@@ -1,0 +1,88 @@
+{
+  lib,
+  pkgs,
+  ...
+}:
+
+{
+
+  boot = {
+    plymouth = {
+      enable = true;
+
+      theme = "blahaj";
+      themePackages = with pkgs; [ plymouth-blahaj-theme ];
+    };
+  };
+
+  programs = {
+    seahorse = {
+      enable = true;
+    };
+
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+  };
+
+  environment = {
+
+    variables = {
+      BROWSER = "firefox";
+      TERMINAL = "alacritty";
+    };
+
+    shellAliases = {
+      nvim = lib.mkForce "hx";
+      vi = lib.mkForce "hx";
+      vim = lib.mkForce "hx";
+    };
+
+    systemPackages = with pkgs; [
+
+      gimp
+      inkscape
+
+      alacritty
+
+      librewolf
+      keepassxc
+
+      vesktop
+      openscad
+
+      telegram-desktop
+      signal-desktop
+      thunderbird
+      pidgin
+
+      prusa-slicer
+      tor-browser
+
+      pavucontrol
+      alacritty
+
+      yazi
+      nmap
+      pkg-config
+    ];
+  };
+
+  # keyring
+  services = {
+    gnome.gnome-keyring = {
+      enable = true;
+    };
+  };
+
+  security.pam.services.login.enableGnomeKeyring = true;
+
+  # fonts
+  fonts.packages = with pkgs; [
+    dejavu_fonts
+
+    nerd-fonts.comic-shanns-mono
+    nerd-fonts.hasklug
+  ];
+}
