@@ -79,6 +79,18 @@
             ./home/lsqc
           ];
         };
+        "antlia" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            {
+              _module.args.inputs = inputs;
+              host = "antlia";
+              theme = import ./home/lsqc/theme-settings.nix;
+            }
+            niri.homeModules.niri
+            ./home/lsqc
+          ];
+        };
       };
     };
 }
