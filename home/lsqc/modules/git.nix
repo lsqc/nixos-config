@@ -28,7 +28,9 @@
         pl = "pull";
         ps = "push";
       };
-      init = { defaultBranch = "main"; };
+      init = {
+        defaultBranch = "main";
+      };
     };
 
     # extraConfig = { init = { defaultBranch = "main"; }; };

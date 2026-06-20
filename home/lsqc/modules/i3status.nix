@@ -24,7 +24,9 @@
       };
       "load" = {
         position = 3;
-        settings = { format = "load %5min"; };
+        settings = {
+          format = "load %5min";
+        };
       };
       "memory" = {
         position = 4;

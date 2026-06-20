@@ -8,11 +8,13 @@
     themePackage = pkgs.alacritty-theme;
 
     settings = {
-      keyboard.bindings = [{
-        key = "K";
-        mods = "Control";
-        chars = "\\u000c";
-      }];
+      keyboard.bindings = [
+        {
+          key = "K";
+          mods = "Control";
+          chars = "\\u000c";
+        }
+      ];
 
       font = {
         size = config.theme.font.size;

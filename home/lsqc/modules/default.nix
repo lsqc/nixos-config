@@ -7,7 +7,6 @@
     ./firefox.nix
     ./element-desktop.nix
     ./fuzzel.nix
-    # ./fnott.nix
     ./git.nix
     ./helix.nix
     ./hypridle.nix
