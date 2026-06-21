@@ -150,7 +150,9 @@ in
         in
         {
           "Mod+Return".action = actions.spawn terminalCommand;
-          "Mod+Shift+Return".action = actions.spawn "alacritty";
+          "Mod+Shift+Return".action = actions.spawn (
+            if config.host == "antlia" then "/usr/bin/alacritty" else "alacritty"
+          );
           "Mod+D".action = actions.spawn "fuzzel";
 
           "Mod+Shift+E" = {
