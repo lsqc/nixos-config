@@ -113,6 +113,8 @@ in
 
       spawn-at-startup = [
         { command = [ "gnome-keyring-daemon" ]; }
+        { command = [ "${lib.getExe pkgs.waybar}" ]; }
+        { command = [ "${lib.getExe pkgs.fuzzel}" ]; }
         {
           command = [
             "${lib.getExe pkgs.swaybg}"
@@ -122,7 +124,6 @@ in
             "fill"
           ];
         }
-        { command = [ "${lib.getExe pkgs.waybar}" ]; }
         {
           command = [
             "${if config.host == "antlia" then "/usr/bin/" else ""}xwayland-satellite"
