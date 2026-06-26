@@ -31,6 +31,11 @@
       url = "github:amaanq/helium-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -38,6 +43,7 @@
       self,
       nixpkgs,
       home-manager,
+      nix-index-database,
       niri,
       disko,
       agenix,
@@ -51,6 +57,18 @@
       commonModules = [
         disko.nixosModules.disko
         agenix.nixosModules.default
+      ];
+
+      commonHomeModules = [
+        {
+          _module.args.inputs = inputs;
+          theme = import ./home/lsqc/theme-settings.nix;
+        }
+
+        niri.homeModules.niri
+        nix-index-database.homeModules.default
+
+        ./home/lsqc
       ];
     in
     {
@@ -69,26 +87,18 @@
 
         "t420" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [
+          modules = commonHomeModules ++ [
             {
-              _module.args.inputs = inputs;
               host = "t420";
-              theme = import ./home/lsqc/theme-settings.nix;
             }
-            niri.homeModules.niri
-            ./home/lsqc
           ];
         };
         "antlia" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [
+          modules = commonHomeModules ++ [
             {
-              _module.args.inputs = inputs;
               host = "antlia";
-              theme = import ./home/lsqc/theme-settings.nix;
             }
-            niri.homeModules.niri
-            ./home/lsqc
           ];
         };
       };
