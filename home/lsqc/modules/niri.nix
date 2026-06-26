@@ -11,6 +11,9 @@ let
     right = "Dell Inc. DELL P2415Q D8VXF03509FB";
     left = "Dell Inc. DELL P2415Q D8VXF99J0DVB";
   };
+  twinkpad = {
+    internal = "LVDS-1";
+  };
 in
 {
   programs.niri = {
@@ -69,35 +72,39 @@ in
           };
         };
 
-        "LVDS-1".scale = 1; # twinkpad
+        "${twinkpad.internal}".scale = 1;
       };
-      workspaces = {
-        "1" = {
-          open-on-output = "${main.center}";
+      workspaces =
+        let
+          main-screen = if config.host == "antlia" then "${main.center}" else "${twinkpad.internal}";
+        in
+        {
+          "1" = {
+            open-on-output = "${main-screen}";
+          };
+          "2" = {
+            open-on-output = "${main-screen}";
+          };
+          "F" = {
+            open-on-output = "${main.right}";
+          };
+          "6" = {
+            open-on-output = "${main-screen}";
+          };
+          "8" = { };
+          "9" = {
+            open-on-output = "${main.right}";
+          };
+          "0" = {
+            open-on-output = "${main.right}";
+          };
+          "!" = {
+            open-on-output = "${main-screen}";
+          };
         };
-        "2" = {
-          open-on-output = "${main.center}";
-        };
-        "F" = {
-          open-on-output = "${main.right}";
-        };
-        "6" = {
-          open-on-output = "${main.center}";
-        };
-        "8" = { };
-        "9" = {
-          open-on-output = "${main.right}";
-        };
-        "0" = {
-          open-on-output = "${main.right}";
-        };
-        "!" = {
-          open-on-output = "${main.center}";
-        };
-      };
 
       animations = {
-        slowdown = 0.4;
+        slowdown = 0.3;
       };
 
       cursor = {
