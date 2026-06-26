@@ -93,5 +93,6 @@
     yubioath-flutter
     wl-clipboard
     hyfetch
+    comma
   ];
 }
