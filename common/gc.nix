@@ -5,6 +5,6 @@
     automatic = true;
     dates = "weekly";
 
-    options = "--delete-older-than 14d";
+    options = "--delete-older-than 7d";
   };
 }
