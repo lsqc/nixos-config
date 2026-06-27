@@ -36,6 +36,7 @@
         {
           # size = "200, 50";
           font_size = 40;
+          color = "rgb(8051d6)";
           font_family = "SF Pro Display Bold";
           position = "0, 260";
           monitor = "";

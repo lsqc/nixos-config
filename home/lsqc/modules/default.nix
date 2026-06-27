@@ -4,8 +4,9 @@
   imports = [
     ./alacritty.nix
     ./atuin.nix
-    ./firefox.nix
+    ./dunst.nix
     ./element-desktop.nix
+    ./firefox.nix
     ./fuzzel.nix
     ./git.nix
     ./helix.nix
@@ -17,13 +18,12 @@
     ./nu.nix
     ./rofi.nix
     ./ssh.nix
-    ./zsh.nix
     ./tmux.nix
-    ./yazi.nix
-    ./xdg.nix
-    ./dunst.nix
     ./waybar.nix
+    ./xdg.nix
+    ./yazi.nix
     ./zellij.nix
     ./zoxide.nix
+    ./zsh.nix
   ];
 }

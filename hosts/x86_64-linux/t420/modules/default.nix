@@ -7,6 +7,7 @@
     ./bluetooth.nix
     ./logind.nix
     ./audio.nix
+    ./console.nix
     ./printing.nix
     ./bootloader.nix
     ./39c3-wifi.nix
