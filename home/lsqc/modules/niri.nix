@@ -29,6 +29,10 @@ in
           accel-profile = "flat";
           accel-speed = 0.9;
         };
+
+        keyboard = {
+          xkb.layout = "eu";
+        };
       };
       outputs = {
         "${main.center}" = {
