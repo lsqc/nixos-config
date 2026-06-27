@@ -3,14 +3,12 @@
 {
   imports = [
     ./adb.nix
-    ./resolved.nix
-    ./bluetooth.nix
-    ./logind.nix
     ./audio.nix
-    ./console.nix
-    ./printing.nix
+    ./bluetooth.nix
     ./bootloader.nix
-    ./39c3-wifi.nix
-    ./cosmic.nix
+    ./console.nix
+    ./logind.nix
+    ./printing.nix
+    ./resolved.nix
   ];
 }
