@@ -161,7 +161,8 @@ in
           "Mod+Shift+Return".action = actions.spawn (
             if config.host == "antlia" then "/usr/bin/alacritty" else "alacritty"
           );
-          "Mod+D".action = actions.spawn "fuzzel";
+          # "Mod+D".action = actions.spawn "fuzzel";
+          "Mod+Backspace".action = actions.spawn "fuzzel";
 
           "Mod+Shift+E" = {
             allow-when-locked = false;
