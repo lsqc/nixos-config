@@ -2,13 +2,20 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
+
+    ./hardware.nix
 
     ../../../common
     ../../../common/desktop.nix
 
-    ./modules
-
+    ./adb.nix
+    ./audio.nix
+    ./bluetooth.nix
+    ./bootloader.nix
+    ./console.nix
+    ./logind.nix
+    ./printing.nix
+    ./resolved.nix
   ];
 
   networking = {
