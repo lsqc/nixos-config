@@ -6,7 +6,10 @@
 
 {
 
-  imports = [ ./pcscd.nix ];
+  imports = [
+    ./pcscd.nix
+    ./console.nix
+  ];
 
   boot = {
     plymouth = {
