@@ -9,6 +9,7 @@ in
     extraGroups = [
       "wheel"
       "networkmanager"
+      "pcscd"
     ];
     openssh.authorizedKeys.keys = keys.lsqc;
   };

@@ -16,6 +16,7 @@
     ./logind.nix
     ./printing.nix
     ./resolved.nix
+    ./pcscd.nix
   ];
 
   networking = {
