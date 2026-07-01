@@ -14,6 +14,8 @@ let
   };
 in
 {
+  home.sessionVariables.DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox";
+
   programs.firefox = {
 
     configPath = "${config.xdg.configHome}/mozilla/firefox";
@@ -38,13 +40,9 @@ in
       extensions.packages = with inputs.firefox-addons.packages.${pkgs.system}; [
         ublock-origin
         sponsorblock
-
         bitwarden
-
         user-agent-string-switcher
         darkreader
-        # firefox-color
-
         vimium
         istilldontcareaboutcookies
         ipvfoo
