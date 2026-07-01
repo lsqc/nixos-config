@@ -11,7 +11,14 @@ in
   # language server packages
   home.packages = with pkgs; [
     svelte-language-server
+
     tofu-ls
+
+    google-java-format
+
+    rustfmt
+    rust-rust-analyzer
+    typos-lsp
   ];
 
   programs.helix = {

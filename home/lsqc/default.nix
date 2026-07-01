@@ -1,4 +1,8 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -9,6 +13,7 @@
 
   home.username = "lsqc";
   home.homeDirectory = "/home/lsqc";
+
   home.stateVersion = "26.05";
 
   programs.home-manager.enable = true;
@@ -17,9 +22,7 @@
 
   home.packages = with pkgs; [
     htop
-    neovim
     playerctl
-    google-java-format
 
     ipcalc
     calc
@@ -34,10 +37,7 @@
 
     prismlauncher
     cargo
-    rustfmt
-    rust-analyzer
     onefetch
-    typos-lsp
 
     cmake
     speedtest-cli
@@ -54,45 +54,45 @@
     pamixer
     vlc
 
-    wireguard-tools
-
     scrcpy
     openvpn
 
-    whois
-    wlr-randr
-    killall
     # dunst
     libnotify
 
     asciiquarium-transparent
     feh
+    comma
+    wireguard-tools
     clang
-    arandr
+    whois
+    killall
     yt-dlp
     usbutils
-
-    just
     fzf
-    libreoffice-qt-fresh
-    pandoc
-    texliveSmall
-    opentofu
-    wl-mirror
+    just
+    mtr
+    mv
     brightnessctl
+    yazi
+    pandoc
+    opentofu
+    tldr
+    wl-mirror
+    wl-clipboard
+    wlr-randr
+    hyfetch
+
+    libreoffice-qt-fresh
+    arandr
+    texliveSmall
 
     steam
-    mtr
-    pv
     jameica
 
     xwayland-satellite
     inputs.helium.packages.x86_64-linux.default
 
-    tldr
     yubioath-flutter
-    wl-clipboard
-    hyfetch
-    comma
   ];
 }

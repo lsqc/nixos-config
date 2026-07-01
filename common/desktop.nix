@@ -50,10 +50,8 @@
 
       alacritty
 
-      librewolf
       keepassxc
 
-      # vesktop
       openscad
       discordo
 
@@ -66,10 +64,6 @@
       tor-browser
 
       pavucontrol
-      alacritty
-
-      yazi
-      nmap
       pkg-config
     ];
   };

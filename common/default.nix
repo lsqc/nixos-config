@@ -1,4 +1,7 @@
-{ lib, ... }:
+{
+  lib,
+  ...
+}:
 
 {
 
@@ -11,26 +14,21 @@
     ./secrets.nix
   ];
 
-  # enable flakes and new cli
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
 
-  # timezone
-  time.timeZone = "Europe/Berlin";
+  time.timeZone = lib.mkDefault "Europe/Berlin";
 
-  # language
   i18n.defaultLocale = "en_US.UTF-8";
 
   environment = {
 
-    # set helix as default editor because who the fuck uses nano
     variables = {
       EDITOR = "hx";
     };
 
-    # aliases
     shellAliases = {
       vim = "hx";
       vi = "hx";
@@ -39,6 +37,7 @@
       ll = "ls -l";
       la = "ls -a";
       cat = "bat";
+      clock = "clock-rs";
     };
   };
 
@@ -46,5 +45,6 @@
     enable = true;
     allowedTCPPorts = lib.mkDefault [ 22 ];
   };
+
   system.stateVersion = "26.05";
 }
