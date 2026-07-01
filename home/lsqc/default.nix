@@ -15,6 +15,8 @@
 
   home.stateVersion = "26.05";
 
+  news.display = "silent";
+
   programs.home-manager.enable = true;
 
   nixpkgs.config.allowUnfree = true;
