@@ -53,8 +53,9 @@
       librewolf
       keepassxc
 
-      vesktop
+      # vesktop
       openscad
+      discordo
 
       telegram-desktop
       signal-desktop
