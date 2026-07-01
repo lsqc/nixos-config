@@ -2,7 +2,6 @@
   config,
   pkgs,
   inputs,
-  lib,
   ...
 }:
 
@@ -17,7 +16,7 @@ in
 {
   programs.firefox = {
 
-    configPath = "${config.xdg.configHome}/.mozilla/firefox";
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
 
     enable = true;
 
@@ -47,7 +46,8 @@ in
         # firefox-color
 
         vimium
-        i-dont-care-about-cookies
+        istilldontcareaboutcookies
+        ipvfoo
       ];
 
       bookmarks = {
@@ -96,7 +96,7 @@ in
                     url = "https://beta.lab.nya.vodka";
                   }
                   {
-                    name = "pve-alpha";
+                    name = "pve-gamma";
                     url = "https://gamma.lab.nya.vodka";
                   }
                   {
@@ -324,7 +324,7 @@ in
     };
   };
 
-  home.file.".mozilla/firefox/lsqc/chrome" = {
+  home.file."${config.xdg.configHome}/mozilla/firefox/lsqc/chrome" = {
     source = "${malevich}/chrome";
     recursive = true;
   };
