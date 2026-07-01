@@ -16,6 +16,7 @@
     ./printing.nix
     ./resolved.nix
     ./pcscd.nix
+    ./emulation.nix
   ];
 
   networking = {
