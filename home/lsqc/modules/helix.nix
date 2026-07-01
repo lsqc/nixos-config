@@ -17,7 +17,7 @@ in
     google-java-format
 
     rustfmt
-    rust-rust-analyzer
+    rust-analyzer
     typos-lsp
   ];
 

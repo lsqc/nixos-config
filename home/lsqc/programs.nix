@@ -4,47 +4,18 @@
   ...
 }:
 
-{
-  home.packages = with pkgs; [
+let
+  cli-pkgs = with pkgs; [
     htop
     playerctl
-
     ipcalc
     calc
-
-    # niri
-    swaybg
-    scrcpy
-
-    fuzzel
-    swaylock
-    hyprlock
-
-    prismlauncher
     cargo
-    onefetch
-
-    cmake
-    speedtest-cli
-
-    timer
     clock-rs
-
-    pngquant
-    xclip
-    scrot
-    betterlockscreen
-
-    playerctl
-    pamixer
-    vlc
-
-    scrcpy
-    openvpn
-
-    # dunst
-    libnotify
-
+    onefetch
+    gnumake
+    speedtest-cli
+    timer
     asciiquarium-transparent
     feh
     comma
@@ -57,7 +28,6 @@
     fzf
     just
     mtr
-    mv
     brightnessctl
     yazi
     pandoc
@@ -67,17 +37,39 @@
     wl-clipboard
     wlr-randr
     hyfetch
+    scrcpy
+    openvpn
+  ];
 
+  graphical-stuff = with pkgs; [
+    prismlauncher
+    vlc
+    swaybg
     libreoffice-qt-fresh
     arandr
-    texliveSmall
-
+    yubioath-flutter
+    inputs.helium.packages.x86_64-linux.default
     steam
     jameica
-
-    xwayland-satellite
-    inputs.helium.packages.x86_64-linux.default
-
-    yubioath-flutter
   ];
+in
+{
+  home.packages =
+    with pkgs;
+    cli-pkgs
+    ++ graphical-stuff
+    ++ [
+
+      pngquant
+      scrot
+
+      pamixer
+
+      libnotify
+
+      texliveSmall
+
+      xwayland-satellite
+
+    ];
 }
