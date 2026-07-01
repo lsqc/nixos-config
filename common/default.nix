@@ -28,17 +28,6 @@
     variables = {
       EDITOR = "hx";
     };
-
-    shellAliases = {
-      vim = "hx";
-      vi = "hx";
-      nvim = "hx";
-      ls = "ls -lsah";
-      ll = "ls -l";
-      la = "ls -a";
-      cat = "bat";
-      clock = "clock-rs";
-    };
   };
 
   networking.firewall = {

@@ -83,6 +83,8 @@
 
       neofetch = "neowofetch";
       clipboard = "wl-copy";
+
+      clock = "clock-rs";
     };
 
     initContent = ''
