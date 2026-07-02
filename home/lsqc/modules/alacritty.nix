@@ -20,8 +20,6 @@
         size = config.theme.font.size;
         normal = {
           family = "${config.theme.font.family}";
-          # family = "Iosevka Nerd Font";
-          # family = "0xProto Nerd Font";
         };
       };
 
