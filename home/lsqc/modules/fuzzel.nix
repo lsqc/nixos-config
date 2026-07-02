@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   programs.fuzzel = {
@@ -13,7 +13,8 @@
         radius = 0;
       };
       main = {
-        font = "Comic Shanns Mono Nerd Font:size=11";
+        font = "${config.theme.font.family}:size=${toString config.theme.font.size}";
+        # font = "Comic Shanns Mono Nerd Font:size=11";
       };
     };
   };
