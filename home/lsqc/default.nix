@@ -13,7 +13,7 @@
   home.username = "lsqc";
   home.homeDirectory = "/home/lsqc";
 
-  home.stateVersion = "26.05";
+  home.stateVersion = "26.11";
 
   news.display = "silent";
 
