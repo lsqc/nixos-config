@@ -76,7 +76,10 @@ in
           };
         };
 
-        "${twinkpad.internal}".scale = 1;
+        "${twinkpad.internal}" = {
+          scale = 1;
+          focus-at-startup = true;
+        };
       };
       workspaces =
         let
@@ -292,16 +295,20 @@ in
       layout = {
 
         gaps = 10;
+
         border = {
           enable = true;
-          width = 3;
+          width = 1;
           active.gradient = {
+            relative-to = "workspace-view";
             angle = 45;
             from = "oklch(0.72 0.18 160)";
             to = "oklch(0.78 0.14 195)";
             in' = "oklab";
           };
+
           inactive.gradient = {
+            relative-to = "workspace-view";
             angle = 45;
             from = "oklch(0.45 0.01 240)";
             to = "oklch(0.55 0.015 220)";
