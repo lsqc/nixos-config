@@ -1,11 +1,10 @@
 { ... }:
 
 {
-  # TODO: move matchBlocks to programs.ssh.settings
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks = {
+    settings = {
       "*" = {
         identityFile = [
           "~/.ssh/id_ed25519_sk"
