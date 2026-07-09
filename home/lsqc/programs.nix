@@ -39,6 +39,7 @@ let
     hyfetch
     scrcpy
     openvpn
+    tokei
   ];
 
   graphical-stuff = with pkgs; [
