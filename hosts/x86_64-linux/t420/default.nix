@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports = [
@@ -18,6 +18,8 @@
     ./pcscd.nix
     ./emulation.nix
   ];
+
+  services.resolved.enable = lib.mkForce false;
 
   networking = {
     hostName = "t420";
