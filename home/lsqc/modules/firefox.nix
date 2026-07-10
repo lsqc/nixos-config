@@ -59,7 +59,7 @@ in
                 bookmarks = [
                   {
                     name = "dashboard";
-                    url = "https://uwu.nya.vodka";
+                    url = "https://λ.nya.vodka";
                   }
                   {
                     name = "git";
