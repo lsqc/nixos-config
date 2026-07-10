@@ -18,7 +18,7 @@
       };
       alias = {
         st = "status -sb";
-        c = "commit";
+        c = "commit -v";
         me = "merge";
         cp = "cherry-pick";
         b = "branch -v";
