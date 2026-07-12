@@ -40,6 +40,7 @@ let
     scrcpy
     openvpn
     tokei
+    jellycli
   ];
 
   graphical-stuff = with pkgs; [
@@ -47,7 +48,7 @@ let
     vlc
     swaybg
     libreoffice-qt-fresh
-    arandr
+    # arandr
     yubioath-flutter
     inputs.helium.packages.x86_64-linux.default
     steam
