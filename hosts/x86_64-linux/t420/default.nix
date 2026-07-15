@@ -12,11 +12,12 @@
     ./audio.nix
     ./bluetooth.nix
     ./bootloader.nix
+    ./emulation.nix
     ./logind.nix
+    ./pcscd.nix
     ./printing.nix
     ./resolved.nix
-    ./pcscd.nix
-    ./emulation.nix
+    ./tailscale.nix
   ];
 
   services.resolved.enable = lib.mkForce false;
