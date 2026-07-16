@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   programs.git = {
@@ -30,6 +30,28 @@
       init = {
         defaultBranch = "main";
       };
+      core = {
+        pager = "delta";
+      };
+      interactive = {
+        diffFilter = "delta --color-only";
+      };
+      delta = {
+        navigate = true;
+        line-numbers = true;
+        side-by-side = true;
+        syntax-theme = "Dracula";
+      };
+      merge = {
+        conflictstyle = "diff3";
+      };
+      diff = {
+        colorMoved = "default";
+      };
     };
   };
+
+  home.packages = with pkgs; [
+    delta
+  ];
 }
