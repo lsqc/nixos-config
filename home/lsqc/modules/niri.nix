@@ -6,13 +6,15 @@
 }:
 
 let
-  main = {
-    center = "Samsung Electric Company LC34G55T HNTX202231";
-    right = "Dell Inc. DELL P2415Q D8VXF03509FB";
-    left = "Dell Inc. DELL P2415Q D8VXF99J0DVB";
-  };
-  twinkpad = {
-    internal = "LVDS-1";
+  screens = {
+    main = {
+      center = "Samsung Electric Company LC34G55T HNTX202231";
+      right = "Dell Inc. DELL P2415Q D8VXF03509FB";
+      left = "Dell Inc. DELL P2415Q D8VXF99J0DVB";
+    };
+    twinkpad = {
+      internal = "LVDS-1";
+    };
   };
 in
 {
@@ -35,7 +37,7 @@ in
         };
       };
       outputs = {
-        "${main.center}" = {
+        "${screens.main.center}" = {
           mode = {
             height = 1440;
             width = 3440;
@@ -50,7 +52,7 @@ in
         };
 
         # left
-        "${main.left}" = {
+        "${screens.main.left}" = {
           mode = {
             height = 1440;
             width = 2560;
@@ -63,7 +65,7 @@ in
           };
         };
         # right
-        "${main.right}" = {
+        "${screens.main.right}" = {
           mode = {
             height = 1440;
             width = 2560;
@@ -76,14 +78,15 @@ in
           };
         };
 
-        "${twinkpad.internal}" = {
+        "${screens.twinkpad.internal}" = {
           scale = 1;
           focus-at-startup = true;
         };
       };
       workspaces =
         let
-          main-screen = if config.host == "antlia" then "${main.center}" else "${twinkpad.internal}";
+          main-screen =
+            if config.host == "antlia" then "${screens.main.center}" else "${screens.twinkpad.internal}";
         in
         {
           "1" = {
@@ -93,17 +96,19 @@ in
             open-on-output = "${main-screen}";
           };
           "F" = {
-            open-on-output = "${main.right}";
+            open-on-output = "${screens.main.right}";
           };
           "6" = {
             open-on-output = "${main-screen}";
           };
-          "8" = { };
+          "8" = {
+            open-on-output = "${screens.main.center}";
+          };
           "9" = {
-            open-on-output = "${main.right}";
+            open-on-output = "${screens.main.right}";
           };
           "0" = {
-            open-on-output = "${main.right}";
+            open-on-output = "${screens.main.right}";
           };
           "!" = {
             open-on-output = "${main-screen}";
@@ -127,6 +132,7 @@ in
 
       spawn-at-startup = [
         { command = [ "gnome-keyring-daemon" ]; }
+        { command = [ "niri msg action focus-workspace 2" ]; }
         { command = [ "${lib.getExe pkgs.waybar}" ]; }
         { command = [ "${lib.getExe pkgs.fuzzel}" ]; }
         {
