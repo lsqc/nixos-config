@@ -17,13 +17,17 @@
         name = "lsqc";
       };
       alias = {
-        st = "status -sb";
         c = "commit -v";
+
         me = "merge";
         cp = "cherry-pick";
         b = "branch -v";
+        st = "status -sb";
         co = "checkout";
         shn = "show --name-only";
+        sl = "shortlog";
+        slnes = "shortlog -nes";
+
         pl = "pull";
         ps = "push";
       };
