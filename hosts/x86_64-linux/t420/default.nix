@@ -1,4 +1,9 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  inputs,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -31,7 +36,10 @@
   # time shit
   time.timeZone = "Europe/Berlin";
 
-  environment.systemPackages = with pkgs; [ clang ];
+  environment.systemPackages = [
+    pkgs.clang
+    inputs.kirikae.packages.x86_64-linux.default
+  ];
 
   programs = {
     nix-ld.enable = true;

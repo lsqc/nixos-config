@@ -36,6 +36,8 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    kirikae.url = "git+https://git.sr.ht/~xqtc/kirikae";
   };
 
   outputs =
@@ -77,6 +79,9 @@
 
         t420 = nixpkgs-unstable.lib.nixosSystem {
           inherit system;
+          specialArgs = {
+            inherit inputs;
+          };
           modules = commonModules ++ [
             ./hosts/x86_64-linux/t420
             ./hosts/x86_64-linux/t420/disko-config.nix
