@@ -19,6 +19,8 @@ in
     rustfmt
     rust-analyzer
     typos-lsp
+
+    zls
   ];
 
   programs.helix = {
@@ -109,6 +111,12 @@ in
           formatter.command = "${pkgs.rustfmt}/bin/rustfmt";
         }
         {
+          name = "zig";
+          auto-format = true;
+          formatter.command = "${pkgs.zls}/bin/zls";
+          language-servers = [ "zls" ];
+        }
+        {
           name = "markdown";
           auto-format = true;
           language-servers = [ "typos" ];
@@ -158,6 +166,10 @@ in
         };
         nixd = {
           command = "${lib.getExe pkgs.nixd}";
+        };
+
+        zls = {
+          command = "${lib.getExe pkgs.zls}";
         };
 
         typos = {

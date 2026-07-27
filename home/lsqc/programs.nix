@@ -41,6 +41,7 @@ let
     openvpn
     tokei
     jellycli
+    zig
   ];
 
   graphical-stuff = with pkgs; [
