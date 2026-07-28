@@ -220,6 +220,31 @@ in
           "Alt+Tab".action = actions.focus-workspace-previous;
 
           # XF86
+
+          # player
+          "Shift+XF86AudioLowerVolume" = {
+            action.spawn = [
+              "playerctl"
+              "play-pause"
+            ];
+            allow-when-locked = true;
+          };
+          "Shift+XF86AudioRaiseVolume" = {
+            action.spawn = [
+              "playerctl"
+              "previous"
+            ];
+            allow-when-locked = true;
+          };
+          "Shift+XF86AudioMute" = {
+            action.spawn = [
+              "playerctl"
+              "next"
+            ];
+            allow-when-locked = true;
+          };
+
+          # volume control
           XF86AudioRaiseVolume = {
             action.spawn = [
               "wpctl"
