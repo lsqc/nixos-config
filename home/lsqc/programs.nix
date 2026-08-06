@@ -45,7 +45,7 @@ let
   ];
 
   graphical-stuff = with pkgs; [
-    prismlauncher
+    # prismlauncher
     vlc
     swaybg
     libreoffice-qt-fresh
