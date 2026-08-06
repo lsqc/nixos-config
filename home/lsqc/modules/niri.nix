@@ -132,6 +132,7 @@ in
 
       spawn-at-startup = [
         { command = [ "gnome-keyring-daemon" ]; }
+        { command = [ "${lib.getExe pkgs.yubikey-touch-detector} -libnotify" ]; }
         { command = [ "niri msg action focus-workspace 2" ]; }
         { command = [ "${lib.getExe pkgs.waybar}" ]; }
         { command = [ "${lib.getExe pkgs.fuzzel}" ]; }
