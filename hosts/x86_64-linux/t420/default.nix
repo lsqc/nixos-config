@@ -23,6 +23,7 @@
     ./printing.nix
     ./resolved.nix
     ./tailscale.nix
+    ./yubikey-touch-detector.nix
   ];
 
   services.resolved.enable = lib.mkForce false;
