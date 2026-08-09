@@ -8,4 +8,4 @@ rebuild:
     home-manager switch --flake .#{{hostname}}
 
 system-rebuild:
-    sudo nixos-rebuild switch --flake .#{{hostname}}
+    nh os switch . -H {{hostname}}

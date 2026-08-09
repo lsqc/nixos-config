@@ -42,6 +42,7 @@ let
     tokei
     jellycli
     zig
+    nh
   ];
 
   graphical-stuff = with pkgs; [
