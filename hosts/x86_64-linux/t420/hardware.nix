@@ -21,7 +21,10 @@
         "sdhci_pci"
       ];
     };
-
+    kernelParams = [
+      "nouveau.runpm=0"
+      "acpi_osi=Linux"
+    ];
     kernelModules = [ ];
     extraModulePackages = [ ];
     kernelPackages = pkgs.linuxPackages_zen;
