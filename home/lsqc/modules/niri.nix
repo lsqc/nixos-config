@@ -371,10 +371,10 @@ in
           matches = [ { app-id = "^firefox$"; } ];
           open-on-workspace = "browser";
         }
-        {
-          matches = [ { app-id = "Alacritty"; } ];
-          opacity = 0.84;
-        }
+        # {
+        #   matches = [ { app-id = "Alacritty"; } ];
+        #   opacity = 0.84;
+        # }
         {
           matches = [
             {
