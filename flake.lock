@@ -110,11 +110,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787590260,
-        "narHash": "sha256-37LONM+kp466liDU1FMl6XZDYRUpwFXt4nEUozlFFQ8=",
+        "lastModified": 1787916586,
+        "narHash": "sha256-J7qNlSDBE0Fno/94Yiq5NenHLCksYj5kT7ndMHtrOqc=",
         "owner": "amaanq",
         "repo": "helium-flake",
-        "rev": "f891f1c4d159b572259872a540c9273530ddad5e",
+        "rev": "6fbfb7eaa88ab13e5adde1b59e51b93932738b30",
         "type": "github"
       },
       "original": {
@@ -169,11 +169,11 @@
         "zig2nix": "zig2nix"
       },
       "locked": {
-        "lastModified": 1786627450,
-        "narHash": "sha256-nTjiXz4tvNP/K0Gkv7kzcyT9tzDvJ1p9dIytmIvWSrs=",
+        "lastModified": 1787951325,
+        "narHash": "sha256-z70/I45beNGAWzRpkydjOnYct4Wicoa2xNXmG6YIYpU=",
         "ref": "refs/heads/trunk",
-        "rev": "59a02bcab3c85905cd2c71e776f0477a5ac9cec4",
-        "revCount": 63,
+        "rev": "52cd1475ebd32d5fa8ca72d2cad6825f5c8c5a26",
+        "revCount": 64,
         "type": "git",
         "url": "https://git.sr.ht/~xqtc/kirikae"
       },
@@ -326,11 +326,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1787753485,
-        "narHash": "sha256-BZWCi9ZRJiARTuKTbbtvFTj7t1TK4G3UEckT3HyNfRg=",
+        "lastModified": 1787848966,
+        "narHash": "sha256-7gDpu5hpq0rOYnYMcOWqSzquK4HA/xU8Xf3CjUBOOJA=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "062346a6d85bc4b49dfaa61c986e9c5be21217d1",
+        "rev": "d57af924f160a5084293c71c2043f058bd1cdb60",
         "type": "github"
       },
       "original": {
