@@ -43,6 +43,7 @@ let
     jellycli
     zig
     nh
+    fpc
   ];
 
   graphical-stuff = with pkgs; [
