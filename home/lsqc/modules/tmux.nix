@@ -39,7 +39,7 @@
             set -g window-status-style 'bg=#000000,fg=#3dd9a4'
             set -g window-status-current-style 'bg=#000000,fg=#3dd9a4'
 
-            set -g status-right '#P | #{battery_percentage}% | #{user}@#h | %H:%M '
+            set -g status-right '#[fg=#ffff00]#P#[default] | #[fg=#d61e96,bold]#{battery_percentage}%#[default] | #[fg=#1e2ad6]#{user}@#h#[default] | #[fg=white,bold]%H:%M#[default] '
             run-shell ${pkgs.tmuxPlugins.battery.rtp}
     '';
   };
