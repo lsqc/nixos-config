@@ -130,33 +130,22 @@ in
         MOZ_ENABLE_WAYLAND = "1";
       };
 
-      spawn-at-startup =
-        if config.host == "antlia" then
-          [
-            { command = [ "${lib.getExe pkgs.waybar}" ]; }
-          ]
-        else
-          [ ]
-          ++ [
-            { command = [ "gnome-keyring-daemon" ]; }
-            { command = [ "${lib.getExe pkgs.yubikey-touch-detector} -libnotify" ]; }
-            { command = [ "niri msg action focus-workspace 2" ]; }
-            { command = [ "${lib.getExe pkgs.fuzzel}" ]; }
-            {
-              command = [
-                "${lib.getExe pkgs.swaybg}"
-                "-i"
-                "${config.home.homeDirectory}/.local/share/wallpapers/latest.png"
-                "-m"
-                "fill"
-              ];
-            }
-            {
-              command = [
-                "${if config.host == "antlia" then "/usr/bin/" else ""}xwayland-satellite"
-              ];
-            }
+      spawn-at-startup = [
+        { command = [ (if config.host == "antlia" then "waybar" else "") ]; }
+        { command = [ "gnome-keyring-daemon" ]; }
+        { command = [ "${lib.getExe pkgs.yubikey-touch-detector} -libnotify" ]; }
+        { command = [ "niri msg action focus-workspace 2" ]; }
+        { command = [ "${lib.getExe pkgs.fuzzel}" ]; }
+        {
+          command = [
+            "${lib.getExe pkgs.swaybg}"
+            "-i"
+            "${config.home.homeDirectory}/.local/share/wallpapers/latest.png"
+            "-m"
+            "fill"
           ];
+        }
+      ];
 
       binds =
         let
