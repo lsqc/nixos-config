@@ -40,6 +40,10 @@ in
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
           installation_mode = "force_installed";
         };
+        "ifbb@ziad87.net" = {
+          installation_mode = "force_installed";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ipvfoobarbaz/latest.xpi";
+        };
       };
     };
 
@@ -53,7 +57,7 @@ in
         darkreader
         vimium
         istilldontcareaboutcookies
-        ipvfoo
+        # ipvfoo
       ];
 
       bookmarks = {
