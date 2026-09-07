@@ -30,6 +30,8 @@
 
         pl = "pull";
         ps = "push";
+
+        rt = "remote";
       };
       init = {
         defaultBranch = "main";
