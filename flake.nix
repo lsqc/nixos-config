@@ -43,7 +43,7 @@
   outputs =
     {
       self,
-      # nixpkgs,
+      nixpkgs,
       nixpkgs-unstable,
       home-manager,
       nix-index-database,
@@ -77,7 +77,7 @@
     {
       nixosConfigurations = {
 
-        t420 = nixpkgs-unstable.lib.nixosSystem {
+        t420 = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
             inherit inputs;

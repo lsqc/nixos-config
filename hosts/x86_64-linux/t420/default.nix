@@ -40,6 +40,7 @@
   environment.systemPackages = [
     pkgs.clang
     pkgs.prismlauncher
+    pkgs.dia
 
     inputs.kirikae.packages.x86_64-linux.default
   ];
