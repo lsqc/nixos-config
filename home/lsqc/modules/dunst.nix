@@ -5,6 +5,8 @@
     enable = true;
     settings = {
       global = {
+        monitor = 0;
+        follow = "mouse";
         width = "(200,300)";
         height = "(0,150)";
         offset = "(30,50)";
