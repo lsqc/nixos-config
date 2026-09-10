@@ -25,7 +25,8 @@
         st = "status -sb";
         co = "checkout";
         shn = "show --name-only";
-        sw = "show";
+        sh = "show";
+        sw = "switch";
         sl = "shortlog";
         slnes = "shortlog -nes";
 
