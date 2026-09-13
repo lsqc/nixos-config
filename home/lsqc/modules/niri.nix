@@ -33,7 +33,10 @@ in
         };
 
         keyboard = {
-          xkb.layout = "eu";
+          xkb = {
+            options = "ctrl:nocaps";
+            layout = "eu";
+          };
         };
       };
       outputs = {
