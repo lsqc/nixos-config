@@ -369,10 +369,12 @@ in
           matches = [ { app-id = "^firefox$"; } ];
           open-on-workspace = "browser";
         }
-        # {
-        #   matches = [ { app-id = "Alacritty"; } ];
-        #   opacity = 0.84;
-        # }
+        {
+          matches = [ { app-id = "Alacritty"; } ];
+          default-column-width = {
+            proportion = 1.0;
+          };
+        }
         {
           matches = [
             {
