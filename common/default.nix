@@ -11,7 +11,7 @@
     ./packages.nix
     ./dns.nix
     ./gc.nix
-    ./secrets.nix
+    # ./secrets.nix
   ];
 
   nix.settings.experimental-features = [

@@ -1,14 +1,9 @@
 {
-  description = "personal nix flake";
+  description = "personal flake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
 
     disko.url = "github:nix-community/disko";
 
@@ -43,72 +38,30 @@
   };
 
   outputs =
-    {
-      self,
-      agenix,
-      disko,
-      flake-parts,
-      home-manager,
-      niri,
-      nix-index-database,
-      nixpkgs,
-      nixpkgs-unstable,
-      ...
-    }@inputs:
-
-    let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs-unstable { inherit system; };
-
-      commonModules = [
-        disko.nixosModules.disko
-        agenix.nixosModules.default
+    inputs@{ flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
       ];
-
-      commonHomeModules = [
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
+      perSystem =
         {
-          _module.args.inputs = inputs;
-          theme = import ./home/lsqc/theme-settings.nix;
-        }
-
-        niri.homeModules.niri
-        nix-index-database.homeModules.default
-
-        ./home/lsqc
-      ];
-    in
-    {
-      nixosConfigurations = {
-
-        t420 = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs;
-          };
-          modules = commonModules ++ [
-            ./hosts/x86_64-linux/t420
-            ./hosts/x86_64-linux/t420/disko-config.nix
-          ];
+          config,
+          self',
+          inputs',
+          pkgs,
+          system,
+          ...
+        }:
+        {
         };
-      };
+      flake = {
 
-      homeConfigurations = {
-
-        "t420" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = commonHomeModules ++ [
-            {
-              host = "t420";
-            }
-          ];
-        };
-        "antlia" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = commonHomeModules ++ [
-            {
-              host = "antlia";
-            }
-          ];
+        nixosConfigurations.t420 = inputs.nixpkgs.lib.nixosSystem {
+          modules = [ ./hosts/x86_64-linux/t420 ];
+          specialArgs = { inherit inputs; };
         };
       };
     };
