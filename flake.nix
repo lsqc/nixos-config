@@ -38,18 +38,21 @@
     };
 
     kirikae.url = "git+https://git.sr.ht/~xqtc/kirikae";
+
+    flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
   outputs =
     {
       self,
+      agenix,
+      disko,
+      flake-parts,
+      home-manager,
+      niri,
+      nix-index-database,
       nixpkgs,
       nixpkgs-unstable,
-      home-manager,
-      nix-index-database,
-      niri,
-      disko,
-      agenix,
       ...
     }@inputs:
 
