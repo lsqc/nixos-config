@@ -30,6 +30,42 @@
     kernelPackages = pkgs.linuxPackages_zen;
   };
 
+  fileSystems = {
+
+    "/" = {
+      device = "/dev/mapper/crypted";
+      fsType = "btrfs";
+      options = [ "subvol=root" ];
+    };
+
+    "/nix" = {
+      device = "/dev/mapper/crypted";
+      fsType = "btrfs";
+      options = [ "subvol=nix" ];
+    };
+
+    "/.swapvol" = {
+      device = "/dev/mapper/crypted";
+      fsType = "btrfs";
+      options = [ "subvol=swap" ];
+    };
+
+    "/home" = {
+      device = "/dev/mapper/crypted";
+      fsType = "btrfs";
+      options = [ "subvol=home" ];
+    };
+
+    "/boot" = {
+      device = "/dev/disk/by-partlabel/disk-main-ESP";
+      fsType = "vfat";
+      options = [
+        "fmask=0077"
+        "dmask=0077"
+      ];
+    };
+  };
+
   networking.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
