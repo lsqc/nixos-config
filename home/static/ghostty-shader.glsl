@@ -1,3 +1,5 @@
+// SOURCE: https://github.com/sahaj-b/ghostty-cursor-shaders/blob/main/cursor_warp.glsl
+
 // sRGB -> Linear conversion (needed because Ghostty passes sRGB values but the shader pipeline operates in linear color space)
 vec3 sRGBToLinear(vec3 c) {
     return mix(c / 12.92, pow((c + 0.055) / 1.055, vec3(2.4)), step(vec3(0.04045), c));
