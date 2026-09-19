@@ -159,16 +159,17 @@ in
       binds =
         let
           actions = config.lib.niri.actions;
+          terminal = "ghostty";
           terminalCommand =
             if config.host == "antlia" then
               [
-                "/usr/bin/ghostty"
+                "/usr/bin/${terminal}"
                 "-e"
                 "tmux"
               ]
             else
               [
-                "alacritty"
+                "${terminal}"
                 "-e"
                 "tmux"
               ];
@@ -177,7 +178,7 @@ in
         {
           "Mod+Return".action = actions.spawn terminalCommand;
           "Mod+Shift+Return".action = actions.spawn (
-            if config.host == "antlia" then "/usr/bin/alacritty" else "alacritty"
+            if config.host == "antlia" then "/usr/bin/${terminal}" else "${terminal}"
           );
           # "Mod+D".action = actions.spawn "fuzzel";
           "Mod+Backspace".action = actions.spawn "fuzzel";
