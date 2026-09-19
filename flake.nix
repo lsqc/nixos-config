@@ -77,7 +77,6 @@
 
       commonHomeModules = [
         {
-          theme = import ./home/${user.name}/theme-settings.nix;
           _module.args.inputs = inputs;
         }
 
@@ -111,12 +110,11 @@
               inherit pkgs;
               extraSpecialArgs = {
                 inherit user;
-                inherit host;
+                # inherit host;
               };
               modules = commonHomeModules ++ [
                 {
-                  # inherit user;
-                  # inherit host;
+                  host = nixpkgs.lib.mkForce host;
                 }
               ];
             }

@@ -15,6 +15,8 @@
 
   home.stateVersion = "26.11";
 
+  theme = import ./theme-settings.nix;
+
   news.display = "silent";
 
   programs.home-manager.enable = true;
