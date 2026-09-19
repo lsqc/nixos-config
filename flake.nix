@@ -67,7 +67,7 @@
         email = "lsqc@nya.vodka";
       };
 
-      commonModules = with inputs; [
+      commonModules = [
 
         disko.nixosModules.disko
         agenix.nixosModules.default
@@ -88,32 +88,20 @@
       ];
     in
     {
-      nixosConfigurations = {
-
-        t420 = nixpkgs.lib.nixosSystem {
+      nixosConfigurations = nixpkgs.lib.genAttrs hosts (
+        host:
+        nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
             inherit user;
             inherit inputs;
           };
           modules = commonModules ++ [
-            ./hosts/x86_64-linux/t420
-            ./hosts/x86_64-linux/t420/disko.nix
+            ./hosts/x86_64-linux/${host}
+            ./hosts/x86_64-linux/${host}/disko.nix
           ];
-        };
-
-        antlia = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit user;
-            inherit inputs;
-          };
-          modules = commonModules ++ [
-            ./hosts/x86_64-linux/antlia
-            ./hosts/x86_64-linux/disko/disko.nix
-          ];
-        };
-      };
+        }
+      );
 
       homeConfigurations = builtins.listToAttrs (
         map (
