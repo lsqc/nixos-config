@@ -7,10 +7,10 @@
 
 let
   malevich = pkgs.fetchFromGitHub {
-    owner = "hermitm0nk";
+    owner = "lsqc";
     repo = "malevich";
     rev = "master";
-    sha256 = "GC/OkpqkOjeSTTGa4xgYHHRrCF95pxGdpUMK8VYsdRk=";
+    sha256 = "1+Skj7d6Czl7I6XhUgZNfGH6po0/o3WvLmRbmm9UsLI=";
   };
 in
 {
