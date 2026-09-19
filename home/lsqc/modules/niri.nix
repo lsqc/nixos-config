@@ -136,7 +136,13 @@ in
       spawn-at-startup = [
         { command = [ (if config.host == "antlia" then "waybar" else "") ]; }
         { command = [ "gnome-keyring-daemon" ]; }
-        { command = [ "${lib.getExe pkgs.yubikey-touch-detector} -libnotify" ]; }
+        {
+          command = [
+            "${
+              if config.host == "antlia" then lib.getExe pkgs.yubikey-touch-detector else "yubikey-touch-detector"
+            } -libnotify"
+          ];
+        }
         { command = [ "niri msg action focus-workspace 2" ]; }
         { command = [ "${lib.getExe pkgs.fuzzel}" ]; }
         {
@@ -156,7 +162,7 @@ in
           terminalCommand =
             if config.host == "antlia" then
               [
-                "/usr/bin/alacritty"
+                "/usr/bin/ghostty"
                 "-e"
                 "tmux"
               ]

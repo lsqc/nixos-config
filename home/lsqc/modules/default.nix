@@ -8,6 +8,7 @@
     ./element-desktop.nix
     ./firefox.nix
     ./fuzzel.nix
+    ./ghostty.nix
     ./git.nix
     ./helix.nix
     ./hypridle.nix
