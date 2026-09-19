@@ -5,7 +5,7 @@ default:
     @just --choose
 
 rebuild:
-    home-manager switch --flake .#{{hostname}}
+    home-manager switch --flake .#{{user}}@{{hostname}}
 
 system-rebuild:
     nh os switch . -H {{hostname}}

@@ -1,5 +1,4 @@
 {
-  lib,
   pkgs,
   ...
 }:
@@ -7,8 +6,8 @@
 {
 
   imports = [
-    ./pcscd.nix
-    ./console.nix
+    ../pcscd.nix
+    ../console.nix
   ];
 
   boot = {
@@ -20,9 +19,8 @@
   };
 
   programs = {
-    seahorse = {
-      enable = true;
-    };
+    nix-ld.enable = true;
+    seahorse.enable = true;
 
     gnupg.agent = {
       enable = true;
@@ -34,22 +32,12 @@
 
     variables = {
       BROWSER = "firefox";
-      TERMINAL = "alacritty";
-    };
-
-    shellAliases = {
-      nvim = lib.mkForce "hx";
-      vi = lib.mkForce "hx";
-      vim = lib.mkForce "hx";
     };
 
     systemPackages = with pkgs; [
 
       gimp
       inkscape
-
-      alacritty
-
       keepassxc
 
       openscad

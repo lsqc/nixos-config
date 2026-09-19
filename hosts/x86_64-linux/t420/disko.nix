@@ -1,11 +1,9 @@
-# https://github.com/nix-community/disko/blob/master/example/luks-btrfs-subvolumes.nix
-
 {
   disko.devices = {
     disk = {
       main = {
         type = "disk";
-        device = "/dev/nvme0n1";
+        device = "/dev/sda";
         content = {
           type = "gpt";
           partitions = {
@@ -47,7 +45,7 @@
                     };
                     "/swap" = {
                       mountpoint = "/.swapvol";
-                      swap.swapfile.size = "16G";
+                      swap.swapfile.size = "20M";
                     };
                   };
                 };

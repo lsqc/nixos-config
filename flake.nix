@@ -50,28 +50,41 @@
       niri,
       disko,
       agenix,
+      kirikae,
       ...
     }@inputs:
 
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs-unstable { inherit system; };
+      hosts = [
+        "antlia"
+        "t420"
+      ];
 
-      commonModules = [
+      user = {
+        name = "lsqc";
+        email = "lsqc@nya.vodka";
+      };
+
+      commonModules = with inputs; [
+
         disko.nixosModules.disko
         agenix.nixosModules.default
+
+        ./common
       ];
 
       commonHomeModules = [
         {
+          theme = import ./home/${user.name}/theme-settings.nix;
           _module.args.inputs = inputs;
-          theme = import ./home/lsqc/theme-settings.nix;
         }
 
         niri.homeModules.niri
         nix-index-database.homeModules.default
 
-        ./home/lsqc
+        ./home/${user.name}
       ];
     in
     {
@@ -80,33 +93,47 @@
         t420 = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
+            inherit user;
             inherit inputs;
           };
           modules = commonModules ++ [
             ./hosts/x86_64-linux/t420
-            ./hosts/x86_64-linux/t420/disko-config.nix
+            ./hosts/x86_64-linux/t420/disko.nix
+          ];
+        };
+
+        antlia = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit user;
+            inherit inputs;
+          };
+          modules = commonModules ++ [
+            ./hosts/x86_64-linux/antlia
+            ./hosts/x86_64-linux/disko/disko.nix
           ];
         };
       };
 
-      homeConfigurations = {
-
-        "t420" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = commonHomeModules ++ [
-            {
-              host = "t420";
+      homeConfigurations = builtins.listToAttrs (
+        map (
+          host:
+          nixpkgs.lib.nameValuePair "${user.name}@${host}" (
+            home-manager.lib.homeManagerConfiguration {
+              inherit pkgs;
+              extraSpecialArgs = {
+                inherit user;
+                inherit host;
+              };
+              modules = commonHomeModules ++ [
+                {
+                  # inherit user;
+                  # inherit host;
+                }
+              ];
             }
-          ];
-        };
-        "antlia" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = commonHomeModules ++ [
-            {
-              host = "antlia";
-            }
-          ];
-        };
-      };
+          )
+        ) hosts
+      );
     };
 }

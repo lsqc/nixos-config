@@ -75,6 +75,5 @@ in
       texliveSmall
 
       xwayland-satellite
-
     ];
 }

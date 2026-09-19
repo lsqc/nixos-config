@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ user, pkgs, ... }:
 
 {
   programs.git = {
@@ -12,10 +12,8 @@
     };
 
     settings = {
-      user = {
-        email = "lsqc@nya.vodka";
-        name = "lsqc";
-      };
+      inherit user;
+
       alias = {
         c = "commit -v";
 
