@@ -6,6 +6,7 @@
 }:
 
 let
+  terminal = "ghostty";
   screens = {
     main = {
       center = "Samsung Electric Company LC34G55T HNTX202231";
@@ -159,7 +160,6 @@ in
       binds =
         let
           actions = config.lib.niri.actions;
-          terminal = "ghostty";
           terminalCommand =
             if config.host == "antlia" then
               [
@@ -373,11 +373,7 @@ in
 
       window-rules = [
         {
-          matches = [ { app-id = "^firefox$"; } ];
-          open-on-workspace = "browser";
-        }
-        {
-          matches = [ { app-id = "Alacritty"; } ];
+          matches = [ { app-id = "${terminal}"; } ];
           default-column-width = {
             proportion = 1.0;
           };
