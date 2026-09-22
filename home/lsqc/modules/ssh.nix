@@ -9,6 +9,7 @@
         identityFile = [
           "~/.ssh/id_ed25519_sk"
           "~/.ssh/id_ed25519_sk2"
+          "~/.ssh/id_ed25519_sk3"
           "~/.ssh/id_ed25519"
         ];
       };
