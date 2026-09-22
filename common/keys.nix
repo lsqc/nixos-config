@@ -5,6 +5,7 @@ let
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFibZMulO+0XmRoFi4r8rhYix3EHcmxzI9VZQaQmsOZf uwu@lsqc.de"
     "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIPqzM8AW9w03e+QbLdETos87bPjmra6gfDWRMV5IO+ALAAAABHNzaDo= lsqc+yubi1@nya.vodka"
     "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIPATs/UPyn1+xlbskmD96ds9qo1jEhWi7AqdvEeLTF8wAAAABHNzaDo= lsqc+yubi2@nya.vodka"
+    "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIEfLNdknUbIToHXLePfIOuxz/T6MqcRIbPnuUVCy9mBlAAAABHNzaDo= lsqc+yubi3@nya.vodka"
   ];
 in
 {
