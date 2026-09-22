@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   programs.tmux = {
@@ -41,7 +46,9 @@
 
             set -g status-right-length 60
 
-            set -g status-right '#[fg=#ffff00]#P#[default] | #{cpu_fg_color}cpu: #{cpu_percentage}#[default] | #[fg=#d61e96,bold]#{battery_percentage}%#[default] | #[fg=#1e2ad6]#{user}@#h#[default] | #[fg=white,bold]%F #[fg=white,bold]%H:%M#[default] '
+            set -g status-right '#[fg=#ffff00]#P#[default] | #{cpu_fg_color}cpu: #{cpu_percentage}#[default] ${
+              (if config.host != "antlia" then "| #[fg=#d61e96,bold]#{battery_percentage}%#[default] " else "")
+            }| #[fg=#1e2ad6]#{user}@#h#[default] | #[fg=white,bold]%F #[fg=white,bold]%H:%M#[default] '
             run-shell ${pkgs.tmuxPlugins.battery.rtp}
             run-shell ${pkgs.tmuxPlugins.cpu.rtp}
     '';
