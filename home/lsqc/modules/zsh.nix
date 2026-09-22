@@ -77,14 +77,15 @@
 
       nef = "neofetch";
       cd = "z";
-      psh = "nix-shell -p";
 
       traceroute = "mtr";
-
       neofetch = "neowofetch";
       clipboard = "wl-copy";
+      nd = "nix develop";
+      psh = "nix-shell -p";
 
       clock = "clock-rs";
+
     };
 
     initContent = ''
