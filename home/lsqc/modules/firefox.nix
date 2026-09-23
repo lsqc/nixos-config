@@ -328,6 +328,18 @@ in
             iconUpdateUrl = "https://noogle.dev/favicon.ico";
             definedAliases = [ "@ng" ];
           };
+
+          rfc = {
+            name = "RFCs";
+            urls = [
+              {
+                template = "https://datatracker.ietf.org/doc/search?name={searchTerms}&sort=&rfcs=on&by=group&group=";
+              }
+            ];
+            iconMapObj."16" = "https://static.ietf.org/dt/12.77.0/ietf/images/ietf-logo-nor.svg";
+            iconUpdateUrl = "https://static.ietf.org/dt/12.77.0/ietf/images/ietf-logo-nor.svg";
+            definedAliases = [ "@rfc" ];
+          };
           google.metaData.alias = "@g";
         };
       };
