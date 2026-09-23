@@ -21,7 +21,6 @@
     ./waybar.nix
     ./xdg.nix
     ./yazi.nix
-    ./zellij.nix
     ./zoxide.nix
     ./zsh.nix
   ];
