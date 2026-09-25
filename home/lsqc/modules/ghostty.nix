@@ -4,6 +4,8 @@
   programs.ghostty = {
     enable = true;
     settings = {
+
+      theme = "Abernathy";
       window-padding-x = 2;
       window-decoration = false;
 
