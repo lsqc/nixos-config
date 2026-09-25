@@ -53,8 +53,8 @@
     };
 
     shellAliases = {
-      ls = "ls -lsa --color";
-      l = "ls -lsa --color";
+      ls = "ls -lsa";
+      l = "ls -lsa";
       ll = "ls -l";
       la = "ls -a";
 
