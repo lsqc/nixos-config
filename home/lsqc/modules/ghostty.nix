@@ -9,7 +9,8 @@
       window-padding-x = 2;
       window-decoration = false;
 
-      custom-shader = "${../../static/ghostty-shader.glsl}";
+      # t420 can't handle shaders vewwy well qwq
+      custom-shader = if config.host != "t420" then "${../../static/ghostty-shader.glsl}" else "";
 
       font-size = config.theme.font.size;
       font-family = "${config.theme.font.family}";
@@ -19,7 +20,7 @@
 
       cursor-style = "block";
       cursor-style-blink = true;
-      shell-integration-features = "no-cursor";
+      shell-integration-features = "no-cursor,ssh-terminfo";
     };
   };
 }
