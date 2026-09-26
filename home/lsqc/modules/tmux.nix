@@ -9,10 +9,13 @@
   programs.tmux = {
     enable = true;
 
-    shell = "${lib.getExe pkgs.zsh}";
+    shell = "${lib.getExe pkgs.nushell}";
     terminal = "tmux-256color";
     historyLimit = 1000000;
-    plugins = with pkgs; [ ];
+    # plugins = with pkgs.tmuxPlugins; [
+    #   battery
+    #   cpu
+    # ];
 
     extraConfig = ''
             setw -g mode-keys vi
