@@ -4,6 +4,7 @@
   imports = [
     ./alacritty.nix
     ./atuin.nix
+    ./direnv.nix
     ./dunst.nix
     ./element-desktop.nix
     ./firefox.nix
