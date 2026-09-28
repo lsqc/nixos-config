@@ -27,14 +27,14 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    helium = {
-      url = "github:amaanq/helium-flake";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    helium = {
+      url = "github:oxcl/nix-flake-helium-browser";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     kirikae.url = "git+https://git.sr.ht/~xqtc/kirikae";
@@ -50,6 +50,7 @@
       niri,
       disko,
       agenix,
+      helium,
       kirikae,
       ...
     }@inputs:
@@ -82,6 +83,7 @@
 
         niri.homeModules.niri
         nix-index-database.homeModules.default
+        helium.homeModules.default
 
         ./home/${user.name}
       ];

@@ -106,20 +106,20 @@
     "helium": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs-unstable"
+          "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1784361909,
-        "narHash": "sha256-VZ1LrHHu3xS77SA6M7LoDKIzd8zpY6hKPHNsdGbsePk=",
-        "owner": "amaanq",
-        "repo": "helium-flake",
-        "rev": "72760eb9e535b55973fe4ba7b7c22affa72ca4bb",
+        "lastModified": 1790255647,
+        "narHash": "sha256-VGsihdN8HxpBeNHB2AK/G5PJP2fFMLBCTy0c1ti0fIg=",
+        "owner": "oxcl",
+        "repo": "nix-flake-helium-browser",
+        "rev": "5334f268b6cec49c58f69093b8f3198d3516e566",
         "type": "github"
       },
       "original": {
-        "owner": "amaanq",
-        "repo": "helium-flake",
+        "owner": "oxcl",
+        "repo": "nix-flake-helium-browser",
         "type": "github"
       }
     },

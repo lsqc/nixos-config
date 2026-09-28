@@ -1,6 +1,5 @@
 {
   pkgs,
-  inputs,
   ...
 }:
 
@@ -53,7 +52,6 @@ let
     libreoffice-qt-fresh
     # arandr
     yubioath-flutter
-    inputs.helium.packages.x86_64-linux.default
     steam
     jameica
   ];

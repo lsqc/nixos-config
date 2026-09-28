@@ -12,6 +12,7 @@
     ./ghostty.nix
     ./git.nix
     ./helix.nix
+    ./helium.nix
     ./hypridle.nix
     ./hyprlock.nix
     ./niri.nix
