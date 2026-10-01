@@ -145,6 +145,10 @@ in
                 name = "github";
                 url = "https://github.com";
               }
+              {
+                name = "dn42 wiki";
+                url = "https://wiki.dn42";
+              }
             ];
           }
         ];
