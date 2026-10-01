@@ -1,4 +1,9 @@
-{ user, ... }:
+{
+  pkgs,
+  lib,
+  user,
+  ...
+}:
 
 let
   keys = import ./keys.nix;
@@ -12,6 +17,7 @@ in
       "pcscd"
     ];
     openssh.authorizedKeys.keys = keys.${user.name};
+    shell = lib.getExe pkgs.nushell;
   };
 
   users.users.root.openssh.authorizedKeys.keys = keys.root;

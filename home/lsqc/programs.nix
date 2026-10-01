@@ -43,6 +43,7 @@ let
     zig
     nh
     fpc
+    pv
   ];
 
   graphical-stuff = with pkgs; [
@@ -54,6 +55,7 @@ let
     yubioath-flutter
     steam
     jameica
+    ghidra
   ];
 in
 {
