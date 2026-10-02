@@ -1,4 +1,6 @@
 {
+  lib,
+  user,
   ...
 }:
 
@@ -10,10 +12,11 @@
     ./programs.nix
   ];
 
-  home.username = "lsqc";
-  home.homeDirectory = "/home/lsqc";
-
-  home.stateVersion = "26.11";
+  home = {
+    username = "${user.name}";
+    homeDirectory = "/home/${user.name}";
+    stateVersion = "26.11";
+  };
 
   theme = import ./theme-settings.nix;
 
@@ -21,5 +24,12 @@
 
   programs.home-manager.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "steam"
+      "steam-unwrapped"
+    ];
+
+  # nixpkgs.config.allowUnfree = true;
 }
