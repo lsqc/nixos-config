@@ -4,7 +4,6 @@
 }:
 
 {
-
   imports = [
     ../pcscd.nix
     ../console.nix
@@ -17,6 +16,9 @@
       themePackages = with pkgs; [ plymouth-blahaj-theme ];
     };
   };
+
+  hardware.graphics.enable = true;
+  security.polkit.enable = true;
 
   programs = {
     nix-ld.enable = true;

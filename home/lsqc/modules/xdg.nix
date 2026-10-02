@@ -3,6 +3,7 @@
 {
   xdg = {
     enable = true;
+    portal.enable = true;
     mimeApps = {
       enable = true;
       defaultApplications = {
