@@ -33,11 +33,12 @@
   };
 
   environment.systemPackages = [
+    inputs.kirikae.packages.x86_64-linux.default
+    (pkgs.callPackage ../../../assets/xcursor-plan9/default.nix { })
+
     pkgs.clang
     pkgs.prismlauncher
     pkgs.dia
-
-    inputs.kirikae.packages.x86_64-linux.default
   ];
 
 }

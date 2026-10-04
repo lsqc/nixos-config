@@ -47,7 +47,8 @@ let
   ];
 
   graphical-stuff = with pkgs; [
-    # prismlauncher
+    (pkgs.callPackage ../../assets/xcursor-plan9 { })
+
     vlc
     swaybg
     libreoffice-qt-fresh
