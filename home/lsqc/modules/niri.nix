@@ -124,7 +124,8 @@ in
       };
 
       cursor = {
-        theme = "default";
+        theme = "plan9";
+        # theme = ""default";
         size = 7;
       };
 
