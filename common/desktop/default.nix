@@ -7,6 +7,7 @@
   imports = [
     ../pcscd.nix
     ../console.nix
+    ./emoji.nix
   ];
 
   boot = {
