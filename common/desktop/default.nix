@@ -35,6 +35,7 @@
 
     variables = {
       BROWSER = "firefox";
+      EDITOR = "hx";
     };
 
     systemPackages = with pkgs; [
