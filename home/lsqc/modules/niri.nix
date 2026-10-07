@@ -33,12 +33,7 @@ in
           accel-speed = 0.9;
         };
 
-        keyboard = {
-          xkb = {
-            options = "ctrl:nocaps";
-            layout = "eu";
-          };
-        };
+        keyboard = import ../../../common/xkb.nix;
       };
 
       outputs = {
