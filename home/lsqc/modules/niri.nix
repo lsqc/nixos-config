@@ -40,6 +40,7 @@ in
           };
         };
       };
+
       outputs = {
         "${screens.main.center}" = {
           mode = {
@@ -375,6 +376,12 @@ in
       window-rules = [
         {
           matches = [ { app-id = "${terminal}"; } ];
+          default-column-width = {
+            proportion = 1.0;
+          };
+        }
+        {
+          matches = [ { app-id = "signal"; } ];
           default-column-width = {
             proportion = 1.0;
           };
