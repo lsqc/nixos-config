@@ -373,28 +373,30 @@ in
         skip-at-startup = true;
       };
 
-      window-rules = [
-        {
-          matches = [ { app-id = "${terminal}"; } ];
-          default-column-width = {
-            proportion = 1.0;
-          };
-        }
-        {
-          matches = [ { app-id = "signal"; } ];
-          default-column-width = {
-            proportion = 1.0;
-          };
-        }
-        {
-          matches = [
-            {
-              app-id = "^firefox$";
-              title = "^Picture-in-Picture$";
-            }
+      window-rules =
+        let
+          full-width = [
+            "Alacritty"
+            "firefox"
+            "signal"
           ];
-        }
-      ];
+        in
+        [
+          {
+            matches = [
+              {
+                app-id = "^firefox$";
+                title = "^Picture-in-Picture$";
+              }
+            ];
+          }
+        ]
+        ++ map (id: {
+          matches = [ { app-id = "${id}"; } ];
+          default-column-width = {
+            proportion = 1.0;
+          };
+        }) full-width;
     };
   };
 }
