@@ -141,7 +141,6 @@ in
             } -libnotify"
           ];
         }
-        { command = [ "niri msg action focus-workspace 2" ]; }
         { command = [ "${lib.getExe pkgs.fuzzel}" ]; }
         {
           command = [
@@ -152,6 +151,7 @@ in
             "fill"
           ];
         }
+        { command = [ "niri msg action focus-workspace 1" ]; }
       ];
 
       binds =
