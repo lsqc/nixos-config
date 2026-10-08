@@ -133,7 +133,7 @@ in
 
       spawn-at-startup = [
         { command = [ (if config.host == "antlia" then "waybar" else "") ]; }
-        { command = [ "gnome-keyring-daemon" ]; }
+        { command = [ "polkit-kde-agent" ]; }
         {
           command = [
             "${

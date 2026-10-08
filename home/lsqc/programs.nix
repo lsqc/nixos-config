@@ -41,7 +41,6 @@ let
     tokei
     jellycli
     zig
-    nh
     fpc
     pv
   ];

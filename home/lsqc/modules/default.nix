@@ -6,7 +6,9 @@
     ./atuin.nix
     ./direnv.nix
     ./dunst.nix
+    ./nh.nix
     ./element-desktop.nix
+    ./gnome-polkit.nix
     ./firefox.nix
     ./fuzzel.nix
     ./ghostty.nix
