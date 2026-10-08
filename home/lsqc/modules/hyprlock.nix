@@ -14,6 +14,7 @@
       background = [
         {
           path = "screenshot";
+          brightness = 0.4;
           blur_passes = 3;
           blur_size = 20;
         }
@@ -25,16 +26,17 @@
           font_size = 40;
           color = "rgb(9918f5)";
           font_family = "${config.theme.font.family}";
-          position = "0, 280";
+          position = "0, 300";
           monitor = "";
+          font_weight = "bold";
           text = "<span>$TIME</span>";
           font_color = "rgba(216, 222, 233, 0.75)";
           shadow_passes = 2;
         }
         # date
         {
-          font_size = 15;
-          color = "rgb(00ff11)";
+          font_size = 18;
+          color = "rgb(ed66b3)";
           font_family = "${config.theme.font.family}";
           position = "0, 245";
           monitor = "";
@@ -69,11 +71,12 @@
         # battery
         {
           font_size = 15;
-          color = "rgb(00ff11)";
+          color = "rgb(eef20a)";
           font_family = "${config.theme.font.family}";
           position = "0, -300";
           monitor = "";
-          text = "cmd[update: 1000] echo \"<span>$(for b in /sys/class/power_supply/BAT*; do echo '$b:' ; cat $b/capacity; done)%</span>\"";
+          max-width = 500;
+          text = "cmd[update: 1000] echo \"<span>$(for b in /sys/class/power_supply/BAT*; do cat $b/capacity; done)%</span>\"";
           shadow_passes = 2;
         }
       ];
