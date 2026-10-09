@@ -6,6 +6,9 @@
 
     extraConfig = ''
 
+      $env.config.table.mode = "compact"
+      $env.EDITOR = "hx"
+
       let ssh = (
         ($env.SSH_CLIENT? | is-not-empty) or ($env.SSH_TTY? | is-not-empty) or ($env.SSH_CONNECTION? | is-not-empty)
       )
@@ -25,9 +28,6 @@
           }
           return (" " + $host + $dir + ((ansi --escape { fg: "#5f00ff"}) + ">" + (ansi reset)))
       }
-
-      $env.config.table.mode = "compact"
-
     '';
 
     settings = {
