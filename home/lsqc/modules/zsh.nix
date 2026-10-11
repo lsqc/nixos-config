@@ -79,13 +79,12 @@
       cd = "z";
 
       traceroute = "mtr";
-      neofetch = "neowofetch";
+      neofetch = "microfetch";
       clipboard = "wl-copy";
       nd = "nix develop";
       psh = "nix-shell -p";
 
       clock = "clock-rs";
-
     };
 
     initContent = ''

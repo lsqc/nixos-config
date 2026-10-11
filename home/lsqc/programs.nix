@@ -35,7 +35,9 @@ let
     wl-mirror
     wl-clipboard
     wlr-randr
-    hyfetch
+    # hyfetch
+    microfetch
+
     scrcpy
     openvpn
     tokei
