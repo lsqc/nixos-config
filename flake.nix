@@ -60,6 +60,7 @@
       hosts = [
         "antlia"
         "t420"
+        "aquila"
       ];
 
       user = {
@@ -86,6 +87,8 @@
 
         ./home/${user.name}
       ];
+
+      homeModules = host: commonHomeModules ++ [ { host = nixpkgs.lib.mkForce host; } ];
     in
     {
       nixosConfigurations = nixpkgs.lib.genAttrs hosts (
@@ -99,6 +102,14 @@
           modules = commonModules ++ [
             ./hosts/x86_64-linux/${host}
             ./hosts/x86_64-linux/${host}/disko.nix
+
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit user; };
+              home-manager.users.${user.name}.imports = homeModules host;
+            }
           ];
         }
       );
@@ -113,11 +124,12 @@
                 inherit user;
                 # inherit host;
               };
-              modules = commonHomeModules ++ [
-                {
-                  host = nixpkgs.lib.mkForce host;
-                }
-              ];
+              modules = homeModules host;
+              # modules = commonHomeModules ++ [
+              #   {
+              #     host = nixpkgs.lib.mkForce host;
+              #   }
+              # ];
             }
           )
         ) hosts

@@ -33,6 +33,11 @@
 
   environment = {
 
+    pathsToLink = [
+      "/share/applications"
+      "/share/xdg-desktop-portal"
+    ];
+
     variables = {
       BROWSER = "firefox";
       EDITOR = "hx";

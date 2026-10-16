@@ -105,7 +105,7 @@
       clang
       rustc
 
-      libreoffice
+      libreoffice-qt
 
       openjdk21
       jdt-language-server

@@ -6,7 +6,7 @@
 }:
 
 let
-  terminal = if config.host == "t420" then "alacritty" else "ghostty";
+  terminal = if (config.host == "t420" || config.host == "aquila") then "alacritty" else "ghostty";
   screens = {
     main = {
       center = "Samsung Electric Company LC34G55T HNTX202231";
