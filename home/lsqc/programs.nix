@@ -52,7 +52,7 @@ let
 
     vlc
     swaybg
-    libreoffice-qt-fresh
+    libreoffice-qt-stable
     # arandr
     yubioath-flutter
     steam
