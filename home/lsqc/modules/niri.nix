@@ -21,9 +21,12 @@ in
 {
   programs.niri = {
     enable = true;
+    package = pkgs.niri-unstable;
     settings = {
 
       prefer-no-csd = true;
+
+      xwayland-satellite.enable = true;
 
       input = {
         focus-follows-mouse.enable = true;
@@ -384,6 +387,22 @@ in
                 title = "^Picture-in-Picture$";
               }
             ];
+          }
+          {
+            matches = [
+              {
+                app-id = "Alacritty";
+              }
+            ];
+            opacity = 0.9;
+          }
+          {
+            matches = [
+              {
+                app-id = "fuzzel";
+              }
+            ];
+            opacity = 0.75;
           }
         ]
         ++ map (id: {

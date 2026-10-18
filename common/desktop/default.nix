@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   ...
 }:
@@ -9,6 +10,8 @@
     ../console.nix
     ./emoji.nix
   ];
+
+  nixpkgs.overlays = [ inputs.niri.overlays.niri ];
 
   boot = {
     plymouth = {
