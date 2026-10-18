@@ -28,6 +28,8 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     install -dm755 $out/share/icons/plan9
+    install -dm755 $out/share/icons/default
     cp -r cursors cursor.theme index.theme $out/share/icons/plan9/
+    cp -r cursors cursor.theme index.theme $out/share/icons/default
   '';
 }
