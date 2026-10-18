@@ -37,6 +37,11 @@
     };
 
     kirikae.url = "git+https://git.sr.ht/~xqtc/kirikae";
+
+    nixos-hardware = {
+      url = "github:nixos/nixos-hardware";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs =

@@ -20,6 +20,8 @@
     ./resolved.nix
     ./tailscale.nix
     ./yubikey-touch-detector.nix
+
+    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t430
   ];
 
   services.resolved.enable = lib.mkForce false;
