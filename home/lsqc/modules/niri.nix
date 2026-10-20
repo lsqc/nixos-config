@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   lib,
   pkgs,
@@ -19,6 +20,8 @@ let
   };
 in
 {
+  nixpkgs.overlays = [ inputs.niri.overlays.niri ];
+
   programs.niri = {
     enable = true;
     package = pkgs.niri-unstable;
