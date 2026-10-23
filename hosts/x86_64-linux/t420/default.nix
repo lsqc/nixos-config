@@ -1,6 +1,5 @@
 {
   lib,
-  inputs,
   pkgs,
   ...
 }:
@@ -33,7 +32,6 @@
   };
 
   environment.systemPackages = [
-    inputs.kirikae.packages.x86_64-linux.default
     (pkgs.callPackage ../../../assets/xcursor-plan9/default.nix { })
 
     pkgs.clang
