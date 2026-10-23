@@ -1,10 +1,13 @@
 {
   pkgs,
+  inputs,
   ...
 }:
 
 let
   cli-pkgs = with pkgs; [
+    inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
+
     htop
     playerctl
     ipcalc
