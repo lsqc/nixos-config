@@ -1,0 +1,7 @@
+{ ... }:
+
+{
+  dconf = {
+    enable = true;
+  };
+}

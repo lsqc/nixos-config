@@ -4,19 +4,20 @@
   imports = [
     ./alacritty.nix
     ./atuin.nix
+    ./dconf.nix
     ./direnv.nix
     ./dunst.nix
-    ./nh.nix
     ./element-desktop.nix
-    ./gnome-polkit.nix
     ./firefox.nix
     ./fuzzel.nix
     ./ghostty.nix
     ./git.nix
-    ./helix.nix
+    ./gnome-polkit.nix
     ./helium.nix
+    ./helix.nix
     ./hypridle.nix
     ./hyprlock.nix
+    ./nh.nix
     ./niri.nix
     ./nu.nix
     ./rofi.nix
