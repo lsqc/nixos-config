@@ -402,6 +402,14 @@ in
           {
             matches = [
               {
+                app-id = "com.mitchellh.ghostty";
+              }
+            ];
+            draw-border-with-background = false;
+          }
+          {
+            matches = [
+              {
                 app-id = "fuzzel";
               }
             ];

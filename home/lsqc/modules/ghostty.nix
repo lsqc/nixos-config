@@ -21,6 +21,15 @@
       cursor-style = "block";
       cursor-style-blink = true;
       shell-integration-features = "no-cursor,ssh-terminfo";
+
+      background-opacity = 0.95;
+      background-blur = true;
+      background-blur-radius = 5;
+
+      # copy-on-select = true;
+      mouse-reporting = false;
+      confirm-close-surface = false;
+      right-click-action = "copy-or-paste";
     };
   };
 }
