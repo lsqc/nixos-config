@@ -9,13 +9,13 @@
         xdg-desktop-portal-gnome
         xdg-desktop-portal-gtk
       ];
-      config.niri = {
-        default = [
-          "gnome"
-          "gtk"
-        ];
-        "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
-      };
+      # config.niri = {
+      #   default = [
+      #     "gnome"
+      #     "gtk"
+      #   ];
+      #   "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
+      # };
     };
 
     mimeApps = {
