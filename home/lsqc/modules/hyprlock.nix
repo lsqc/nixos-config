@@ -85,7 +85,7 @@
         {
           monitor = "";
           size = 100;
-          path = "~/.local/share/pfp.png";
+          path = "${../../../assets/pfp.png}";
           position = "0, 100";
         }
       ];
