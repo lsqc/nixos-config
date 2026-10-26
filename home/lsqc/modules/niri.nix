@@ -164,7 +164,7 @@ in
         let
           actions = config.lib.niri.actions;
           terminalCommand =
-            if config.host == "antlia" then
+            if config.host == "antlia-legacy" then
               [
                 "/usr/bin/${terminal}"
                 "-e"
@@ -176,12 +176,12 @@ in
                 "-e"
                 "tmux"
               ];
-          lockCommand = if config.host == "antlia" then "/usr/bin/hyprlock" else "hyprlock";
+          lockCommand = if config.host == "antlia-legacy" then "/usr/bin/hyprlock" else "hyprlock";
         in
         {
           "Mod+Return".action = actions.spawn terminalCommand;
           "Mod+Shift+Return".action = actions.spawn (
-            if config.host == "antlia" then "/usr/bin/${terminal}" else "${terminal}"
+            if config.host == "antlia-legacy" then "/usr/bin/${terminal}" else "${terminal}"
           );
           # "Mod+D".action = actions.spawn "fuzzel";
           "Mod+Backspace".action = actions.spawn "fuzzel";

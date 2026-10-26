@@ -8,5 +8,8 @@
       gtk-application-prefer-dark-theme = true;
       gtk-font-name = "Sans ${toString config.theme.font.size}";
     };
+    gtk4.extraConfig = {
+      gtk-applications-prefer-dark-theme = true;
+    };
   };
 }
