@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 let
   apple-color-emoji = pkgs.stdenvNoCC.mkDerivation {
@@ -16,7 +16,7 @@ let
 in
 {
   fonts = {
-    fontconfig.defaultFonts.emoji = [ "Apple Color Emoji" ];
+    fontconfig.defaultFonts.emoji = lib.mkForce [ "Apple Color Emoji" ];
     packages = [ apple-color-emoji ];
   };
 }

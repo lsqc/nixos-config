@@ -21,6 +21,28 @@
     };
   };
 
+  fonts = {
+    packages = with pkgs; [
+      liberation_ttf
+      dejavu_fonts
+      nerd-fonts.comic-shanns-mono
+      nerd-fonts.hasklug
+    ];
+    fontconfig =
+      let
+        theme-config = import ../../home/lsqc/theme-settings.nix;
+      in
+      {
+        enable = true;
+        defaultFonts = {
+          serif = [ "Liberation Serif" ];
+          sansSerif = [ "Liberation Sans" ];
+          monospace = [ "${theme-config.font.family}" ];
+          emoji = [ "Apple Color Emoji" ];
+        };
+      };
+  };
+
   hardware.graphics.enable = true;
   security.polkit.enable = true;
 
@@ -76,12 +98,4 @@
   };
 
   security.pam.services.login.enableGnomeKeyring = true;
-
-  # fonts
-  fonts.packages = with pkgs; [
-    dejavu_fonts
-
-    nerd-fonts.comic-shanns-mono
-    nerd-fonts.hasklug
-  ];
 }
