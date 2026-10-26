@@ -127,6 +127,7 @@
               inherit pkgs;
               extraSpecialArgs = {
                 inherit user;
+                inherit inputs;
                 # inherit host;
               };
               modules = homeModules host;
