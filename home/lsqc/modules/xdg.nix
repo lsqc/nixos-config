@@ -9,6 +9,18 @@
         xdg-desktop-portal-gnome
         xdg-desktop-portal-gtk
       ];
+
+      config.niri = {
+        default = [
+          "gnome"
+          "gtk"
+        ];
+        "org.freedesktop.impl.portal.Access" = "gtk";
+        "org.freedesktop.impl.portal.Notification" = "gtk";
+        "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
+        "org.freedesktop.impl.portal.FileChooser" = "gtk";
+        "org.freedesktop.impl.portal.ScreenCast" = "gnome";
+      };
       # config.niri = {
       #   default = [
       #     "gnome"
@@ -23,7 +35,7 @@
       defaultApplications = {
         "text/html" = "firefox.desktop";
 
-        "application/pdf" = "firfox.desktop";
+        "application/pdf" = "firefox.desktop";
 
         "x-scheme-handler/http" = "firefox.desktop";
         "x-scheme-handler/https" = "firefox.desktop";

@@ -4,6 +4,7 @@
   imports = [
 
     ./adb.nix
+    ./gdm.nix
     ./audio.nix
     ./bootloader.nix
     ./networking.nix
