@@ -114,6 +114,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit user; };
               home-manager.users.${user.name}.imports = homeModules host;
+              home-manager.backupFileExtension = "backup";
             }
           ];
         }
