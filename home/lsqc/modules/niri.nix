@@ -406,6 +406,9 @@ in
               }
             ];
             draw-border-with-background = false;
+            default-column-width = {
+              proportion = 1.0;
+            };
           }
           {
             matches = [
