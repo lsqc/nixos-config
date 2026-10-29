@@ -27,6 +27,7 @@
       dejavu_fonts
       nerd-fonts.comic-shanns-mono
       nerd-fonts.hasklug
+      noto-fonts-cjk-sans
     ];
     fontconfig =
       let
@@ -35,9 +36,18 @@
       {
         enable = true;
         defaultFonts = {
-          serif = [ "Liberation Serif" ];
-          sansSerif = [ "Liberation Sans" ];
-          monospace = [ "${theme-config.font.family}" ];
+          serif = [
+            "Liberation Serif"
+            "Noto Serif CJK HK"
+          ];
+          sansSerif = [
+            "Liberation Sans"
+            "Noto Serif CJK HK"
+          ];
+          monospace = [
+            "${theme-config.font.family}"
+            "Noto Serif CJK HK"
+          ];
           emoji = [ "Apple Color Emoji" ];
         };
       };
