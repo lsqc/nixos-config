@@ -3,6 +3,7 @@
 {
   imports = [
     ./alacritty.nix
+    ./carapace.nix
     ./atuin.nix
     ./dconf.nix
     ./direnv.nix

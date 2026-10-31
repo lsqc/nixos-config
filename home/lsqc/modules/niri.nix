@@ -122,7 +122,7 @@ in
         };
 
       animations = {
-        slowdown = 0.3;
+        slowdown = 0.5;
       };
 
       cursor = {

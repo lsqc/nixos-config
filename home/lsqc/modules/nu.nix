@@ -1,5 +1,10 @@
 { config, ... }: {
 
+  programs.carapace = {
+    enable = true;
+    enableNushellIntegration = true; # sets up the external completer
+  };
+
   programs.nushell = {
     enable = true;
     shellAliases = config.programs.zsh.shellAliases;
@@ -52,10 +57,47 @@
 
     settings = {
       show_banner = false;
+
       completions.external = {
         enable = true;
         max_results = 200;
       };
+
+      menus = [
+        {
+          name = "completion_menu";
+          only_buffer_difference = false;
+          marker = "";
+          type = {
+            layout = "ide";
+            border = true;
+            padding = 0;
+            cursor_offset = 0;
+            correct_cursor_pos = false;
+            min_completion_width = 0;
+            max_completion_width = 60;
+            max_completion_height = 25;
+            description_mode = "prefer_right";
+            min_description_width = 0;
+            max_description_width = 60;
+            max_description_height = 10;
+            description_offset = 1;
+          };
+          style = {
+            text = "green";
+            selected_text = {
+              attr = "r";
+            };
+            description_text = "yellow";
+            match_text = {
+              attr = "u";
+            };
+            selected_match_text = {
+              attr = "ur";
+            };
+          };
+        }
+      ];
     };
   };
 }
