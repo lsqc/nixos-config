@@ -2,7 +2,7 @@
 
 {
   programs.ghostty = {
-    enable = true;
+    enable = config.host == "antlia";
     settings = {
 
       theme = "Abernathy";
