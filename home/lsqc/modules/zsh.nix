@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, lib, ... }:
 
 {
   programs.zsh = {
@@ -52,40 +52,44 @@
       };
     };
 
-    shellAliases = {
-      ls = "ls -lsa";
-      l = "ls -lsa";
-      ll = "ls -l";
-      la = "ls -a";
+    shellAliases =
+      let
+        editor-cmd = lib.getExe pkgs.helix;
+      in
+      {
+        ls = "ls -lsa";
+        l = "ls -lsa";
+        ll = "ls -l";
+        la = "ls -a";
 
-      zz = "EDITOR=hx yazi";
-      ed = "hx";
-      vi = "hx";
-      vim = "hx";
-      nvim = "hx";
+        zz = "EDITOR=${editor-cmd} yazi";
+        ed = editor-cmd;
+        vi = editor-cmd;
+        vim = editor-cmd;
+        nvim = editor-cmd;
 
-      jj = "just";
+        jj = "${lib.getExe pkgs.just}";
 
-      g = "git";
-      cg = "cargo";
-      cr = "cargo run";
+        g = "git";
+        cg = "cargo";
+        cr = "cargo run";
 
-      cat = "bat";
-      pat = "bat -p";
+        cat = "bat";
+        pat = "bat -p";
 
-      home = "home-manager";
+        # home = "home-manager";
 
-      nef = "neofetch";
-      cd = "z";
+        cd = "z";
 
-      traceroute = "mtr";
-      neofetch = "microfetch";
-      clipboard = "wl-copy";
-      nd = "nix develop";
-      psh = "nix-shell -p";
+        traceroute = "mtr";
+        neofetch = "${lib.getExe pkgs.microfetch}";
+        clipboard = "wl-copy";
+        nd = "nix develop";
+        psh = "nix-shell -p";
 
-      clock = "clock-rs";
-    };
+        clock = "${lib.getExe pkgs.clock-rs}";
+        df = "${lib.getExe pkgs.duf}";
+      };
 
     initContent = ''
 
