@@ -76,7 +76,7 @@
           position = "0, -300";
           monitor = "";
           max-width = 500;
-          text = "cmd[update: 1000] echo \"<span>$(for b in /sys/class/power_supply/BAT*; do cat $b/capacity; done)%</span>\"";
+          text = "cmd[update:1000] [[ -e /sys/class/power_supply/BAT* ]] && echo \"<span>$(for b in /sys/class/power_supply/BAT*; do cat \"$b/capacity\"; done)%</span>\"";
           shadow_passes = 2;
         }
       ];
