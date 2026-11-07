@@ -13,7 +13,6 @@
     ./audio.nix
     ./bluetooth.nix
     ./bootloader.nix
-    ./emulation.nix
     ./logind.nix
     ./printing.nix
     ./resolved.nix

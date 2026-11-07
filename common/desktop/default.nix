@@ -8,10 +8,12 @@
   imports = [
     ../pcscd.nix
     ../console.nix
+
     ./emoji.nix
+    ./emulation.nix
   ];
 
-  # nixpkgs.overlays = [ inputs.niri.overlays.niri ];
+  nixpkgs.overlays = [ inputs.niri.overlays.niri ];
 
   boot = {
     plymouth = {
