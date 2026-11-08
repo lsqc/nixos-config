@@ -26,7 +26,7 @@
       colors = {
         cursor = {
           text = "#84c1db";
-          cursor = "#84c1db";
+          cursor = "#c516f5";
         };
       };
 
