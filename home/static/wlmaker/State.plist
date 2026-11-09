@@ -1,0 +1,39 @@
+{
+  Dock = {
+    Output = {
+      Name = "*";
+    };
+    Edge = RIGHT;
+    Anchor = TOP;
+     Launchers = (
+      {
+        AppID = "alacritty";
+        CommandLine = "alacritty";
+        Icon = "terminal-56x56.png";
+      },
+      {
+        AppID = "firefox";
+        CommandLine = "MOZ_ENABLE_WAYLAND=1 firefox";
+        Icon = "firefox-56x56.png";
+      }
+    );
+  };
+  Clip = {
+    Output = {
+      Name = "*";
+    };
+    Edge = BOTTOM;
+    Anchor = RIGHT;
+  };
+  Workspaces = (
+    {
+        Name = Main;
+    },
+    {
+        Name = Second;
+    },
+    {
+        Name = Third;
+    },
+  );
+}

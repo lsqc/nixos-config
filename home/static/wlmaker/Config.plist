@@ -1,0 +1,138 @@
+//! @page etc_config_plist etc/Config.plist
+//! Compiled-in default configuration. See @ref config_file for details.
+//! @include etc/Config.plist
+// Base configuration for wlmaker: Keyboard and autostarted applications.
+{
+    Keyboard = {
+        // Use system-wide configuration. See keyboard(5). Takes precedence
+        // over `XkbRMLVO`.
+        XkbConfigurationFile = "/etc/default/keyboard";
+
+        // Alternatively: Specify the keyboard properties directly.
+        XkbRMLVO = {
+            Rules = "evdev";
+            Layout = "us";
+//            Variant = "intl";
+            Options = "ctrl:nocaps";
+        };
+
+        Repeat = {
+            // Delay before initiating repeats, in milliseconds.
+            Delay = 300;
+            // Repeats per second.
+            Rate = 25;
+        };
+    };
+
+    Touchpad = {
+        Enabled = True;
+        DisableWhileTyping = True;
+        // How the touchpad determines which button is meant on tap.
+        // None, ButtonAreas or ClickFinger.
+        ClickMethod = ClickFinger;
+        TapToClick = Disabled;
+        // How scrolling is initiated by the touchpad:
+        // NoScroll, TwoFingers, Edge or OnButtonDown.
+        ScrollMethod = TwoFingers;
+        NaturalScrolling = Enabled;
+    };
+
+    Cursor = {
+        // Optional. If set: A keyboard modifier that will emulate a mouse
+        // right-button click, if the modifier is held while the left button
+        // is pressed.
+        EmulateRightButtonModifier = Alt;
+
+        // Optional. If set: Start moving the window, When pressing that
+        // modifier while starting to drag the left mouse button.
+        MoveWindowModifier = Logo;
+    };
+
+    // Optional. Full path to a Theme file.
+    // ThemeFile = "/usr/share/wlmaker/wlmaker/Themes/Other.plist";
+
+    // Configuration for XDG decoration protocol: Server or client-side?
+    Decoration = {
+        Mode = SuggestServer;
+    };
+    KeyBindings = {
+        "Ctrl+Alt+Backspace" = Quit;
+        "Logo+Return" = (ShellExecute, "alacritty -e tmux");
+        "Logo+Shift+Return" = (ShellExecute, "alacritty");
+
+        "Ctrl+Alt+L" = LockScreen;
+        "Logo+L" = LockScreen;
+        "Logo+Backspace" = (ShellExecute, "fuzzel");
+
+        "Alt+Tab" = TaskNext;
+        "Shift+Alt+ISO_Left_Tab" = TaskPrevious;
+
+        "Ctrl+Alt+Left" = WorkspacePrevious;
+        "Ctrl+Alt+Right" = WorkspaceNext;
+
+        "Alt+Up" = WindowRaise;
+        "Alt+Down" = WindowLower;
+        "Alt+F10" = WindowToggleMaximized;
+        "Ctrl+Shift+M" = WindowToggleMaximized;
+        "Logo+F" = WindowToggleFullscreen;
+        "Ctrl+Shift+F" = WindowToggleFullscreen;
+        "Alt+F4" = WindowClose;
+        "Ctrl+Alt+Shift+Right" = WindowToNextWorkspace;
+        "Ctrl+Alt+Shift+Left" = WindowToPreviousWorkspace;
+
+        "F12" = RootMenu;
+        "Ctrl+Escape" = RootMenu;
+
+        // TODO(kaeser@gubbe.ch): Swap to Plus, Minus, once finding a way to
+        // exclude the Shift-modifier well.
+        "Ctrl+Shift+Page_Up" = OutputMagnify;
+        "Ctrl+Shift+Page_Down" = OutputReduce;
+        "XF86MonBrightnessDown" = (ShellExecute, "brightnessctl set 5%-");
+        "XF86MonBrightnessUp" = (ShellExecute, "brightnessctl set +5%");
+
+        // TODO(kaeser@gubbe.ch): xkbcommon emits XF86Switch_VT_n for Fn only with
+        // Ctrl+Alt presset. Means: Here, it should not need the modifiers to be
+        // listed. Should determine how to handle that w/o modifiers.
+        "Ctrl+Alt+XF86Switch_VT_1" = SwitchToVT1;
+        "Ctrl+Alt+XF86Switch_VT_2" = SwitchToVT2;
+        "Ctrl+Alt+XF86Switch_VT_3" = SwitchToVT3;
+        "Ctrl+Alt+XF86Switch_VT_4" = SwitchToVT4;
+        "Ctrl+Alt+XF86Switch_VT_5" = SwitchToVT5;
+        "Ctrl+Alt+XF86Switch_VT_6" = SwitchToVT6;
+        "Ctrl+Alt+XF86Switch_VT_7" = SwitchToVT7;
+        "Ctrl+Alt+XF86Switch_VT_8" = SwitchToVT8;
+        "Ctrl+Alt+XF86Switch_VT_9" = SwitchToVT9;
+        "Ctrl+Alt+XF86Switch_VT_10" = SwitchToVT10;
+        "Ctrl+Alt+XF86Switch_VT_11" = SwitchToVT11;
+        "Ctrl+Alt+XF86Switch_VT_12" = SwitchToVT12;
+    };
+    HotCorner = {
+        // Delay for the pointer occupying a corner before triggering 'Enter'.
+        TriggerDelay = 500;
+        // For each corner 'TopLeft', 'TopRight', 'BottomLeft' and 'BottomRight'
+        // there are 'Enter' and 'Leave' events that can be bound to an action.
+        TopLeftEnter = LockScreen;
+        TopLeftLeave = None;
+        TopRightEnter = InhibitLockBegin;
+        TopRightLeave = InhibitLockEnd;
+        BottomLeftEnter = None;
+        BottomLeftLeave = None;
+        BottomRightEnter = None;
+        BottomRightLeave = None;
+    };
+    ScreenLock = {
+        IdleSeconds = 300;
+        Command = "hyprlock";
+    };
+    // Optional array: Commands to start once wlmaker is running.
+    Autostart = (
+        // TODO(kaeser@gubbe.ch): Add wlmdock.
+    );
+    Outputs = (
+        {
+            Name = "*";
+            Transformation = Normal;
+            Scale = 1.0;
+        },
+    );
+}

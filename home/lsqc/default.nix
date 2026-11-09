@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   user,
   ...
@@ -30,6 +31,10 @@
       "steam"
       "steam-unwrapped"
     ];
+
+  home.file = {
+    "${config.xdg.configHome}/wlmaker".source = ../static/wlmaker;
+  };
 
   # nixpkgs.config.allowUnfree = true;
 }
