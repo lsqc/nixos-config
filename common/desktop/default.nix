@@ -11,6 +11,7 @@
 
     ./emoji.nix
     ./emulation.nix
+    ./btrfs.nix
   ];
 
   nixpkgs.overlays = [ inputs.niri.overlays.niri ];
