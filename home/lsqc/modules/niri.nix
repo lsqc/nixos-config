@@ -34,9 +34,10 @@ in
       input = {
         focus-follows-mouse.enable = true;
         touchpad.enable = false;
+
         mouse = {
           accel-profile = "flat";
-          accel-speed = 0.9;
+          accel-speed = if (config.host == "t420" || config.host == "aquila") then 1 else 0.9;
         };
 
         keyboard = import ../../../common/xkb.nix;
