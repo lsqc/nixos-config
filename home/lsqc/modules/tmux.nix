@@ -6,54 +6,60 @@
 }:
 
 {
-  programs.tmux = {
-    enable = true;
+  programs.tmux =
+    let
+      mem = pkgs.writeShellScript "tmux-mem-usage-wrapper" ''
+        free -h | ${lib.getExe pkgs.gawk} '/Mem/ {print $3 "/" $2}'
+      '';
+    in
+    {
+      enable = true;
 
-    shell = "${lib.getExe pkgs.nushell}";
-    terminal = "tmux-256color";
-    historyLimit = 1000000;
-    # plugins = with pkgs.tmuxPlugins; [
-    #   battery
-    #   cpu
-    # ];
+      shell = "${lib.getExe pkgs.nushell}";
+      terminal = "tmux-256color";
+      historyLimit = 1000000;
+      # plugins = with pkgs.tmuxPlugins; [
+      #   battery
+      #   cpu
+      # ];
 
-    extraConfig = ''
-            setw -g mode-keys vi
-            # set prefix
-            unbind C-b
-            set-option -g prefix C-s
-            bind-key C-s send-prefix
-            # window splitting
-            unbind '"'
-            unbind %
-            bind | split-window -h -c "#{pane_current_path}"
-            bind - split-window -v -c "#{pane_current_path}"
-            bind -n M-h select-pane -L
-            bind -n M-j select-pane -D
-            bind -n M-k select-pane -U
-            bind -n M-l select-pane -R
-      #      bind h select-pane -L
-      #      bind j select-pane -D
-      #      bind k select-pane -U
-      #      bind l select-pane -R
-            set-window-option -g xterm-keys on
-            # theme
-            set -g pane-active-border-style 'fg=#E91E63'
-            set -g pane-border-style 'fg=#2C2C2C'
-            # status line
-            set -g status-style 'bg=#000000,fg=#3dd9a4'
-            set -g status-left-style 'bg=#000000,fg=#3dd9a4'
-            set -g status-right-style 'bg=#000000,fg=#3dd9a4'
-            set -g window-status-style 'bg=#000000,fg=#3dd9a4'
-            set -g window-status-current-style 'bg=#000000,fg=#3dd9a4'
+      extraConfig = ''
+              setw -g mode-keys vi
+              # set prefix
+              unbind C-b
+              set-option -g prefix C-s
+              bind-key C-s send-prefix
+              # window splitting
+              unbind '"'
+              unbind %
+              bind | split-window -h -c "#{pane_current_path}"
+              bind - split-window -v -c "#{pane_current_path}"
+              bind -n M-h select-pane -L
+              bind -n M-j select-pane -D
+              bind -n M-k select-pane -U
+              bind -n M-l select-pane -R
+        #      bind h select-pane -L
+        #      bind j select-pane -D
+        #      bind k select-pane -U
+        #      bind l select-pane -R
+              set-window-option -g xterm-keys on
+              # theme
+              set -g pane-active-border-style 'fg=#E91E63'
+              set -g pane-border-style 'fg=#2C2C2C'
+              # status line
+              set -g status-style 'bg=#000000,fg=#3dd9a4'
+              set -g status-left-style 'bg=#000000,fg=#3dd9a4'
+              set -g status-right-style 'bg=#000000,fg=#3dd9a4'
+              set -g window-status-style 'bg=#000000,fg=#3dd9a4'
+              set -g window-status-current-style 'bg=#000000,fg=#3dd9a4'
 
-            set -g status-right-length 60
+              set -g status-right-length 80
 
-            set -g status-right '#[fg=#ffff00]#P#[default] | #{cpu_fg_color}cpu: #{cpu_percentage}#[default] ${
-              (if config.host != "antlia" then "| #[fg=#d61e96,bold]#{battery_percentage}%#[default] " else "")
-            }| #[fg=#1e2ad6]#{user}@#h#[default] | #[fg=white,bold]%F #[fg=white,bold]%H:%M#[default] '
-            run-shell ${pkgs.tmuxPlugins.battery.rtp}
-            run-shell ${pkgs.tmuxPlugins.cpu.rtp}
-    '';
-  };
+              set -g status-right '#[fg=#ffff00]#P#[default] |#[fg=#40ff80,bold] #(${mem})#[default] | #{cpu_fg_color}cpu: #{cpu_percentage}#[default] ${
+                (if config.host != "antlia" then "| #[fg=#2effbd,bold]#{battery_percentage}%#[default] " else "")
+              }| #[fg=#1e2ad6]#{user}@#h#[default] | #[fg=white,bold]%F #[fg=white,bold]%H:%M#[default] '
+              run-shell ${pkgs.tmuxPlugins.battery.rtp}
+              run-shell ${pkgs.tmuxPlugins.cpu.rtp}
+      '';
+    };
 }
