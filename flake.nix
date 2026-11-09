@@ -42,6 +42,11 @@
       url = "github:nixos/nixos-hardware";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    wlmaker = {
+      url = "github:lsqc/wlmaker-flake";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs =
@@ -56,6 +61,7 @@
       agenix,
       helium,
       kirikae,
+      wlmaker,
       ...
     }@inputs:
 
@@ -80,7 +86,6 @@
 
         ./common
       ];
-
       commonHomeModules = [
         {
           _module.args.inputs = inputs;

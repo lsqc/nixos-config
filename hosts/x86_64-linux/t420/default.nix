@@ -1,4 +1,5 @@
 {
+  inputs,
   lib,
   pkgs,
   ...
@@ -32,6 +33,7 @@
   };
 
   environment.systemPackages = [
+    inputs.wlmaker.packages.${pkgs.system}.default
     (pkgs.callPackage ../../../assets/xcursor-plan9/default.nix { })
 
     pkgs.clang
