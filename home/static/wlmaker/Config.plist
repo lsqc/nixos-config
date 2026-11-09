@@ -60,8 +60,7 @@
         "Logo+Return" = (ShellExecute, "alacritty -e tmux");
         "Logo+Shift+Return" = (ShellExecute, "alacritty");
 
-        "Ctrl+Alt+L" = LockScreen;
-        "Logo+L" = LockScreen;
+        "Logo+Alt+L" = LockScreen;
         "Logo+Backspace" = (ShellExecute, "fuzzel");
 
         "Alt+Tab" = TaskNext;
@@ -73,9 +72,8 @@
         "Alt+Up" = WindowRaise;
         "Alt+Down" = WindowLower;
         "Alt+F10" = WindowToggleMaximized;
-        "Ctrl+Shift+M" = WindowToggleMaximized;
-        "Logo+F" = WindowToggleFullscreen;
-        "Ctrl+Shift+F" = WindowToggleFullscreen;
+        "Logo+F" = WindowToggleMaximized;
+        "Logo+Shift+M" = WindowToggleFullscreen;
         "Alt+F4" = WindowClose;
         "Ctrl+Alt+Shift+Right" = WindowToNextWorkspace;
         "Ctrl+Alt+Shift+Left" = WindowToPreviousWorkspace;
@@ -127,6 +125,11 @@
     // Optional array: Commands to start once wlmaker is running.
     Autostart = (
         // TODO(kaeser@gubbe.ch): Add wlmdock.
+        "wlmbattery",
+        "wlmclock",
+        "wlmcpugraph",
+        "wlmmemgraph",
+        "wlmnetgraph"
     );
     Outputs = (
         {
