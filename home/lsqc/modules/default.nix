@@ -20,7 +20,6 @@
     ./hyprlock.nix
     ./nh.nix
     ./niri.nix
-    ./kitty.nix
     ./nu.nix
     ./rofi.nix
     ./ssh.nix
