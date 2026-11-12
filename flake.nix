@@ -43,10 +43,7 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    wlmaker = {
-      url = "github:lsqc/wlmaker-flake";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
+    wlmaker.url = "git+https://git.nya.vodka/lsqc/wlmaker-flake?ref=trunk";
   };
 
   outputs =
