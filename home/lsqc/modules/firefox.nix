@@ -149,6 +149,19 @@ in
                 name = "dn42 wiki";
                 url = "https://wiki.dn42";
               }
+              {
+                name = "dn42";
+                bookmarks = [
+                  {
+                    name = "wiki";
+                    url = "https://wiki.dn42";
+                  }
+                  {
+                    name = "map";
+                    url = "https://map.dn42";
+                  }
+                ];
+              }
             ];
           }
         ];
