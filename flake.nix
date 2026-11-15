@@ -112,11 +112,15 @@
 
             home-manager.nixosModules.home-manager
             {
-              # home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit user; };
-              home-manager.users.${user.name}.imports = homeModules host;
-              home-manager.backupFileExtension = "backup";
+              home-manager = {
+                users.${user.name}.imports = homeModules host;
+                useUserPackages = true;
+                backupFileExtension = "backup";
+                extraSpecialArgs = {
+                  theme-settings = import ./home/lsqc/theme-settings.nix;
+                  inherit user;
+                };
+              };
             }
           ];
         }
@@ -131,6 +135,7 @@
               extraSpecialArgs = {
                 inherit user;
                 inherit inputs;
+                theme-settings = import ./home/lsqc/theme-settings.nix;
                 # inherit host;
               };
               modules = homeModules host;

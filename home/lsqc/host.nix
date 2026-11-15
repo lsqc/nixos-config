@@ -22,6 +22,18 @@
               };
             };
           };
+          default = { };
+        };
+
+        terminal = lib.mkOption {
+          type = lib.types.submodule {
+            transparency = lib.mkOption {
+              type = lib.types.attrsOf lib.types.number;
+              default = {
+              };
+              description = "";
+            };
+          };
         };
       };
     };

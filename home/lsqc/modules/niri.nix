@@ -3,6 +3,7 @@
   config,
   lib,
   pkgs,
+  theme-settings,
   ...
 }:
 
@@ -398,7 +399,9 @@ in
                 app-id = "Alacritty";
               }
             ];
-            opacity = 0.9;
+            opacity =
+              theme-settings.terminal.transparency.${config.host}
+                or theme-settings.terminal.transparency.fallback;
           }
           {
             matches = [
