@@ -129,7 +129,8 @@
         "wlmclock",
         "wlmcpugraph",
         "wlmmemgraph",
-        "wlmnetgraph"
+        "wlmnetgraph",
+        "swaybg -i /home/lsqc/.local/share/wallpapers/latest.png -m fill"
     );
     Outputs = (
         {
