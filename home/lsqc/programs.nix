@@ -49,6 +49,7 @@ let
     zig
     fpc
     pv
+    minicom
   ];
 
   graphical-stuff = with pkgs; [
