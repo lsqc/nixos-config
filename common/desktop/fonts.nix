@@ -12,6 +12,7 @@
       nerd-fonts.comic-shanns-mono
       nerd-fonts.hasklug
       nerd-fonts.symbols-only
+      pkgs.nerd-fonts.bigblue-terminal
     ];
 
     fontconfig =
