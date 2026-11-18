@@ -7,19 +7,18 @@
 
 {
   imports = [
-
-    ./hardware.nix
-
     ./adb.nix
     ./audio.nix
     ./bluetooth.nix
     ./bootloader.nix
+    ./hardware.nix
     ./logind.nix
+    ./net.nix
     ./printing.nix
     ./resolved.nix
     ./tailscale.nix
+    ./tor.nix
     ./yubikey-touch-detector.nix
-    ./net.nix
   ];
 
   services.resolved.enable = lib.mkForce false;
