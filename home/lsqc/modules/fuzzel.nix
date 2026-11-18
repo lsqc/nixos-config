@@ -11,7 +11,7 @@
     settings = {
       colors = {
         text = "ffffffff";
-        background = "000000ee";
+        background = "000000cc";
         input = "e8fc03ff";
         selection-text = "37faa2ff";
         selection = "1f1f1fff";
