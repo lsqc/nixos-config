@@ -5,6 +5,7 @@
     autoScrub = {
       enable = true;
       interval = "daily";
+      fileSystems = [ "/" ];
     };
   };
 }
