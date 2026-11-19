@@ -56,6 +56,10 @@ in
         statusline = {
           separator = "|";
         };
+        indent-guides = {
+          render = true;
+          character = "│";
+        };
 
         bufferline = "multiple";
         cursorline = true;
@@ -64,6 +68,11 @@ in
 
         whitespace = {
           render = "all";
+          characters = {
+            space = "·";
+            tab = "→";
+            tabpad = "·";
+          };
         };
       };
 
@@ -233,6 +242,9 @@ in
           "underline" = {
             "style" = "curl";
           };
+        };
+        "ui.virtual.indent-guide" = {
+          fg = "#32a852";
         };
 
         # statusline
