@@ -32,6 +32,7 @@
         ps = "push";
 
         rt = "remote";
+        stat = "show --stat";
       };
       init = {
         defaultBranch = "main";
