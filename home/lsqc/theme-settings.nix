@@ -1,7 +1,7 @@
 {
   font = {
     size = 11;
-    family = "BigBlueTerm437 Nerd Font";
+    family = "Hasklug Nerd Font Mono";
   };
 
   terminal = {
