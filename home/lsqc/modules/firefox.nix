@@ -140,6 +140,11 @@ in
                     url = "${inputs.yuuri-nix.nixosConfigurations.forgejo.config.services.forgejo.settings.server.ROOT_URL
                     }";
                   }
+                  {
+                    name = "Grafana";
+                    url = "${inputs.yuuri-nix.nixosConfigurations.prometheus.config.services.grafana.settings.server.root_url
+                    }";
+                  }
                 ];
               }
               {
