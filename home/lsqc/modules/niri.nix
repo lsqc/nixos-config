@@ -144,9 +144,7 @@ in
         { command = [ "polkit-kde-agent" ]; }
         {
           command = [
-            "${
-              if config.host == "antlia" then lib.getExe pkgs.yubikey-touch-detector else "yubikey-touch-detector"
-            } -libnotify"
+            "${lib.getExe pkgs.yubikey-touch-detector} -libnotify"
           ];
         }
         { command = [ "${lib.getExe pkgs.fuzzel}" ]; }
@@ -165,27 +163,16 @@ in
       binds =
         let
           actions = config.lib.niri.actions;
-          terminalCommand =
-            if config.host == "antlia-legacy" then
-              [
-                "/usr/bin/${terminal}"
-                "-e"
-                "tmux"
-              ]
-            else
-              [
-                "${terminal}"
-                "-e"
-                "tmux"
-              ];
-          lockCommand = if config.host == "antlia-legacy" then "/usr/bin/hyprlock" else "hyprlock";
+          terminalCommand = [
+            "${terminal}"
+            "-e"
+            "tmux"
+          ];
+          lockCommand = "hyprlock";
         in
         {
           "Mod+Return".action = actions.spawn terminalCommand;
-          "Mod+Shift+Return".action = actions.spawn (
-            if config.host == "antlia-legacy" then "/usr/bin/${terminal}" else "${terminal}"
-          );
-          # "Mod+D".action = actions.spawn "fuzzel";
+          "Mod+Shift+Return".action = actions.spawn terminal;
           "Mod+Backspace".action = actions.spawn "fuzzel";
 
           "Mod+Shift+E" = {
@@ -337,13 +324,16 @@ in
       layout = {
 
         gaps = 10;
+        default-column-width = {
+          proportion = 0.95;
+        };
 
         border = {
           enable = true;
-          width = 1;
+          width = 1.3;
           active.gradient = {
             relative-to = "workspace-view";
-            angle = 45;
+            angle = 30;
             from = "oklch(0.72 0.18 160)";
             to = "oklch(0.78 0.14 195)";
             in' = "oklab";
@@ -351,20 +341,18 @@ in
 
           inactive.gradient = {
             relative-to = "workspace-view";
-            angle = 45;
+            angle = 30;
             from = "oklch(0.45 0.01 240)";
             to = "oklch(0.55 0.015 220)";
             in' = "oklab";
           };
-        };
-        default-column-width = {
-          proportion = 0.9;
         };
 
         focus-ring.enable = false;
 
         background-color = "transparent";
       };
+
       layer-rules = [
         {
           matches = [ { namespace = "^wallpaper$"; } ];
