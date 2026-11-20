@@ -120,36 +120,6 @@ in
                 ];
               }
               {
-                name = "piracy";
-                bookmarks = [
-                  {
-                    name = "flood";
-                    url = "https://flood.legacy-v4.nya.vodka";
-                  }
-                  {
-                    name = "transmission ru";
-                    url = "https://transmission.artemis.nya.vodka";
-
-                  }
-                  {
-                    name = "transmission bg";
-                    url = "https://transmission.parzival.nya.vodka";
-                  }
-                ];
-              }
-              {
-                name = "youtube";
-                url = "https://youtube.com";
-              }
-              {
-                name = "github";
-                url = "https://github.com";
-              }
-              {
-                name = "dn42 wiki";
-                url = "https://wiki.dn42";
-              }
-              {
                 name = "dn42";
                 bookmarks = [
                   {
@@ -161,6 +131,24 @@ in
                     url = "https://map.dn42";
                   }
                 ];
+              }
+              {
+                name = "yuuri";
+                bookmarks = [
+                  {
+                    name = "Forgejo";
+                    url = "${inputs.yuuri-nix.nixosConfigurations.forgejo.config.services.forgejo.settings.server.ROOT_URL
+                    }";
+                  }
+                ];
+              }
+              {
+                name = "youtube";
+                url = "https://youtube.com";
+              }
+              {
+                name = "github";
+                url = "https://github.com";
               }
             ];
           }

@@ -44,6 +44,7 @@
     };
 
     wlmaker.url = "git+https://git.nya.vodka/lsqc/wlmaker-flake?ref=trunk";
+    yuuri-nix.url = "git+https://git.nya.vodka/lsqc/yuuri-nix?ref=trunk";
   };
 
   outputs =
