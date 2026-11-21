@@ -29,10 +29,10 @@
     };
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
-    blacklistedKernelModules = [
-      "nouveau"
-      "nvidia"
-    ];
+    # blacklistedKernelModules = [
+    #   "nouveau"
+    #   "nvidia"
+    # ];
   };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
