@@ -1,4 +1,4 @@
-{ config, ... }:
+{ lib, config, ... }:
 
 {
   programs.hyprlock = {
@@ -76,7 +76,11 @@
           position = "0, -300";
           monitor = "";
           max-width = 500;
-          text = "cmd[update:1000] echo \"<span>$(for b in /sys/class/power_supply/BAT*; do [ -r \"$b/capacity\" ] && cat \"$b/capacity\"; done | head -n1)%</span>";
+          text =
+            if config.host == "antlia" then
+              "cmd[update:1000] echo \"<span>$(cat /sys/class/power_supply/BAT0/capacity)%</span>"
+            else
+              "";
           shadow_passes = 2;
         }
       ];
