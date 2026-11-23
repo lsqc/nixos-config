@@ -69,7 +69,7 @@
       hosts = [
         "antlia"
         "t420"
-        "aquila"
+        "t430"
       ];
 
       user = {
