@@ -28,7 +28,7 @@
   programs.nix-ld.enable = true;
 
   networking = {
-    hostName = "aquila";
+    hostName = "t430";
     networkmanager.enable = true;
   };
 
