@@ -8,7 +8,7 @@
 }:
 
 let
-  terminal = if (config.host == "t420" || config.host == "aquila") then "alacritty" else "ghostty";
+  terminal = if (config.host == "t420" || config.host == "t430") then "alacritty" else "ghostty";
   screens = {
     main = {
       center = "Samsung Electric Company LC34G55T HNTX202231";
@@ -38,7 +38,7 @@ in
 
         mouse = {
           accel-profile = "flat";
-          accel-speed = if (config.host == "t420" || config.host == "aquila") then 1 else 0.9;
+          accel-speed = if (config.host == "t420" || config.host == "t430") then 1 else 0.9;
         };
 
         keyboard = import ../../../common/xkb.nix;
