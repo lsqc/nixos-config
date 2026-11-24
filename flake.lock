@@ -1,5 +1,27 @@
 {
   "nodes": {
+    "aerothemeplasma-nix": {
+      "inputs": {
+        "flake-parts": "flake-parts",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791653139,
+        "narHash": "sha256-vXroqaLC13EDSESYWj1VZIv8914GJNkbNj+Yz28Y1js=",
+        "owner": "nyakase",
+        "repo": "aerothemeplasma-nix",
+        "rev": "d31f0442ef008952da73262ce481e9c5e8b53e6f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nyakase",
+        "ref": "26.05",
+        "repo": "aerothemeplasma-nix",
+        "type": "github"
+      }
+    },
     "agenix": {
       "inputs": {
         "nixpkgs": [
@@ -94,6 +116,24 @@
       "original": {
         "owner": "edolstra",
         "repo": "flake-compat",
+        "type": "github"
+      }
+    },
+    "flake-parts": {
+      "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib"
+      },
+      "locked": {
+        "lastModified": 1785627969,
+        "narHash": "sha256-4dtXQk/NMePegK/nWp5NSeuZKLATItOq61lpEvmXqGw=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "427bf4bd9435fdf21321c8cc628c24efc14c0f7a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
         "type": "github"
       }
     },
@@ -362,6 +402,21 @@
         "type": "github"
       }
     },
+    "nixpkgs-lib": {
+      "locked": {
+        "lastModified": 1785031560,
+        "narHash": "sha256-OmshNvn2vupOFpYinLUu+1Dnpu4n7Q5N3ggGVNHpkUI=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "0e79af5e3d4dcfcd676ab5ba3f95d2e3352e078c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1767480499,
@@ -487,6 +542,7 @@
     },
     "root": {
       "inputs": {
+        "aerothemeplasma-nix": "aerothemeplasma-nix",
         "agenix": "agenix",
         "disko": "disko",
         "firefox-addons": "firefox-addons",

@@ -7,6 +7,7 @@
     ./audio.nix
     ./bootloader.nix
     ./gdm.nix
+    ./aerothemeplasma.nix
     ./networking.nix
     ./nvidia.nix
     ./pcscd.nix

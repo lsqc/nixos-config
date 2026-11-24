@@ -45,6 +45,11 @@
 
     wlmaker.url = "git+https://git.nya.vodka/lsqc/wlmaker-flake?ref=trunk";
     yuuri-nix.url = "git+https://git.nya.vodka/lsqc/yuuri-nix?ref=trunk";
+
+    aerothemeplasma-nix = {
+      url = "github:nyakase/aerothemeplasma-nix/26.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -96,6 +101,10 @@
         ./home/${user.name}
       ];
 
+      hostModules = {
+        antlia = [ inputs.aerothemeplasma-nix.nixosModules.aerothemeplasma-nix ];
+      };
+
       homeModules = host: commonHomeModules ++ [ { host = nixpkgs.lib.mkForce host; } ];
     in
     {
@@ -107,23 +116,26 @@
             inherit user;
             inherit inputs;
           };
-          modules = commonModules ++ [
-            ./hosts/x86_64-linux/${host}
-            ./hosts/x86_64-linux/${host}/disko.nix
+          modules =
+            commonModules
+            ++ (hostModules.${host} or [ ])
+            ++ [
+              ./hosts/x86_64-linux/${host}
+              ./hosts/x86_64-linux/${host}/disko.nix
 
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                users.${user.name}.imports = homeModules host;
-                useUserPackages = true;
-                backupFileExtension = "backup";
-                extraSpecialArgs = {
-                  theme-settings = import ./home/lsqc/theme-settings.nix;
-                  inherit user;
+              home-manager.nixosModules.home-manager
+              {
+                home-manager = {
+                  users.${user.name}.imports = homeModules host;
+                  useUserPackages = true;
+                  backupFileExtension = "backup";
+                  extraSpecialArgs = {
+                    theme-settings = import ./home/lsqc/theme-settings.nix;
+                    inherit user;
+                  };
                 };
-              };
-            }
-          ];
+              }
+            ];
         }
       );
 
