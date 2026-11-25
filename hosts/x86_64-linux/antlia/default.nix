@@ -4,10 +4,11 @@
   imports = [
 
     ./adb.nix
+    ./aerothemeplasma.nix
     ./audio.nix
+    ./bluetooth.nix
     ./bootloader.nix
     ./gdm.nix
-    ./aerothemeplasma.nix
     ./networking.nix
     ./nvidia.nix
     ./pcscd.nix
