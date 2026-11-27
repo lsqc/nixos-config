@@ -4,7 +4,7 @@
   imports = [
 
     ./adb.nix
-    ./aerothemeplasma.nix
+    # ./aerothemeplasma.nix
     ./audio.nix
     ./bluetooth.nix
     ./bootloader.nix
