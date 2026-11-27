@@ -22,6 +22,7 @@ let
     asciiquarium-transparent
     feh
     comma
+    ffmpeg
     wireguard-tools
     clang
     whois
