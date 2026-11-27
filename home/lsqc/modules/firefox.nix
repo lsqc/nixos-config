@@ -145,6 +145,10 @@ in
                     url = "${inputs.yuuri-nix.nixosConfigurations.prometheus.config.services.grafana.settings.server.root_url
                     }";
                   }
+                  {
+                    name = "Jellyfin";
+                    url = "https://jellyfin.yuuri.nya.vodka";
+                  }
                 ];
               }
               {
